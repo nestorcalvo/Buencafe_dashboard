@@ -8,7 +8,7 @@
 <p align = "center">
 
   <a href="https://github.com/nestorcalvo/Buencafe_dashboard">
-    <img src="images/buencafe_icon_1.png" alt="Logo" width="80" height="80">
+    <img src="images/buencafe_icon_1.png" alt="Logo" width="250" height="100">
   </a>
 
 </p>
