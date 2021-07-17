@@ -30,7 +30,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Buencafé Dashboard, Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
+Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
 It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
 
 
