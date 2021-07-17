@@ -53,7 +53,7 @@ This is an example of how to list things you need to use the software and how to
 Nestor Calvo - nestorcalvoa@gmail.com
 
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/nestorcalvo/Buencafe_dashboard](https://github.com/nestorcalvo/Buencafe_dashboard)
 
 <!-- Links to badges (template, need repo in public) -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
