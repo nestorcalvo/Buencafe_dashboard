@@ -8,6 +8,7 @@ import pandas as pd
 import plotly.express as px
 
 app = dash.Dash(__name__)
+print("Hello")
 
 app.layout = html.Div(children = [
 
