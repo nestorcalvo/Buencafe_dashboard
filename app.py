@@ -14,6 +14,6 @@ app.layout = html.Div(children = [
     html.H1(children = 'Basic app')
     
 ])
-
+print("Luis was here")
 if __name__ == '__main__':
     app.run_server(debug=True)
