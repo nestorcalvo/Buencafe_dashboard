@@ -17,7 +17,7 @@
     Dashboard for Buencafé (fill info)
     <br />
     <br />
-    <a href="https://github.com/nestorcalvo/Buencafe_dashboard">View Demo</a>
+    <a href="https://github.com/nestorcalvo/Buencafe_dashboard">View Demo (Still not available)</a>
     ·
     <a href="https://github.com/nestorcalvo/Buencafe_dashboard/issues">Report Bug</a>
     ·
