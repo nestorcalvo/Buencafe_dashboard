@@ -8,8 +8,14 @@ import dash_html_components as html
 import pandas as pd
 import plotly.express as px
 
-
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+external_scripts =[
+    {
+        # Icons libraries
+        'src': 'https://kit.fontawesome.com/b359ae410d.js',
+        'crossorigin': 'anonymous'
+    }
+]
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
 
 sidebar = html.Div(
     [
