@@ -99,7 +99,12 @@ sidebar = html.Div(
     className = "sidebar",
 )
 
-content = html.Div(id="page-content", className = "content")
+content = html.Div(
+    [
+
+    ],
+    id="page-content", 
+    className = "content")
 
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
