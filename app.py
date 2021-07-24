@@ -53,7 +53,12 @@ control_2 = dbc.Card(
 
 #Dataframe y funcion para graficar
 df_luis = px.data.stocks()
-fig_luis = px.line(df_luis, x='date', y="GOOG")
+fig_luis = px.line(df_luis, x='date', y="GOOG",
+                labels={
+                     "date": "Date",
+                     "GOOG": "Steam Generation (Ton/h)",
+                 },
+                title="Steam Generation")
 
 sidebar = html.Div(
     [
