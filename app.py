@@ -23,10 +23,13 @@ sidebar = html.Div(
             src = "/assets/images/buencafe_icon_1.png",
             className = "sidebar-image"
         ),
-        html.Hr(),
+        html.I(
+            className = "fas fa-user-tie"
+        ),
         html.H3(
             "Admin", className="admin-name"
         ),
+        html.Hr(),
         dbc.Nav(
             [
                 html.Div(

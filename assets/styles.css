@@ -3,6 +3,9 @@
     margin-right: 2rem;
     padding: 2rem 1rem;
 }
+.admin-name{
+    padding-top: 10px;
+}
 .sidebar{
     position: fixed;
     top: 0;
@@ -10,13 +13,29 @@
     bottom: 0;
     width: 16rem;
     padding: 2rem 1rem;
-    /* background-Color: #FF5733;
-    background-Image: url("/assets/images/buencafe_icon_1.png"); */
+    background: rgb(177,59,47);
+    background: linear-gradient(0deg, rgba(177,59,47,1) 0%, rgba(211,135,104,0.9359944661458334) 46%); 
+    box-shadow: 2px 0px 5px;
+    
+}
+
+.sidebar::before {    
+    content: "";
+    background-Image: url("/assets/images/cafe_background.jpg");
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 16rem;
+    opacity: 0.1;
 }
 
 .sidebar-image{
     width: 100%;
+    padding-bottom: 30px;
     height: auto;
+
 }
 
 .mintic-image{
@@ -27,6 +46,7 @@
     left: 0;
 }
 
+
 .nav-pills{
     font-size: large;
     text-shadow: 1px 3px 8px;
@@ -36,11 +56,19 @@
 }
 
 .nav-link{
+    color:#FFFFFF;
     position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 .fas, .far{
     padding-right: 15%;
+}
+.fa-user-tie {
+    font-size: 60px;
+}
+
+hr{
+    border: 1px solid #FFFFFF;
 }
 
