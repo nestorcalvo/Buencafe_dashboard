@@ -38,6 +38,12 @@ sidebar = html.Div(
             vertical=True,
             pills=True,
         ),
+        html.Div(
+            html.Img(
+                src = "/assets/images/mintic_image.png",
+                className = "minticImage"
+            )
+        )
     ],
     className = "sidebar",
 )
