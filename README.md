@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-List things you need to use the software and how to install them.
+List of things you need to use the software and how to install them.
 * python libraries
   ```sh
   pip install -r requirements.txt
