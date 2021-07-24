@@ -11,15 +11,6 @@ import plotly.express as px
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-# the styles for the main content position it to the right of the sidebar and
-# add some padding.
-CONTENT_STYLE = {
-    "marginLeft": "18rem",
-    "marginRight": "2rem",
-    "padding": "2rem 1rem",
-}
-
-
 sidebar = html.Div(
     [
         html.Img(
@@ -51,7 +42,7 @@ sidebar = html.Div(
     className = "sidebar",
 )
 
-content = html.Div(id="pageContent", style=CONTENT_STYLE)
+content = html.Div(id="pageContent", className = "content")
 
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
