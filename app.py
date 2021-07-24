@@ -10,7 +10,7 @@ import plotly.express as px
 app = dash.Dash(__name__)
 
 print("Juan estuvo aquí") #Comentario
-print("Otro print")
+print("Otro print") #
 
 app.layout = html.Div(children = [
 
