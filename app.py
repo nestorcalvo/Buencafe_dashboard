@@ -9,9 +9,6 @@ import plotly.express as px
 
 app = dash.Dash(__name__)
 
-print("Juan estuvo aquí") #Comentario
-print("Otro print") #Otro comentario
-print("Ejemplo")
 
 app.layout = html.Div(children = [
 
