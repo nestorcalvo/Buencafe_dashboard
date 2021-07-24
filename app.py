@@ -11,32 +11,24 @@ import plotly.express as px
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-# the style arguments for the sidebar. We use position:fixed and a fixed width
-SIDEBAR_STYLE = {
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "bottom": 0,
-    "width": "16rem",
-    "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
-}
-
 # the styles for the main content position it to the right of the sidebar and
 # add some padding.
 CONTENT_STYLE = {
-    "margin-left": "18rem",
-    "margin-right": "2rem",
+    "marginLeft": "18rem",
+    "marginRight": "2rem",
     "padding": "2rem 1rem",
 }
 
 
 sidebar = html.Div(
     [
-        html.H2("Sidebar", className="display-4"),
+        html.Img(
+            src = "/assets/images/buencafe_icon_1.png",
+            className = "sidebarImage"
+        ),
         html.Hr(),
         html.H3(
-            "Admin", className="admin_name"
+            "Admin", className="adminName"
         ),
         dbc.Nav(
             [
@@ -48,10 +40,10 @@ sidebar = html.Div(
             pills=True,
         ),
     ],
-    style=SIDEBAR_STYLE,
+    className = "sidebar",
 )
 
-content = html.Div(id="page-content", style=CONTENT_STYLE)
+content = html.Div(id="pageContent", style=CONTENT_STYLE)
 
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
