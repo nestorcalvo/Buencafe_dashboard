@@ -1,4 +1,16 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16rem;
+    padding: 2rem 1rem;
+    /* background-Color: #FF5733;
+    background-Image: url("/assets/images/buencafe_icon_1.png"); */
+}
+
 .sidebarImage{
     width: 100%;
     height: 20%;
 }
+
