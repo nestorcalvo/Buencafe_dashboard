@@ -32,9 +32,17 @@ sidebar = html.Div(
         ),
         dbc.Nav(
             [
-                dbc.NavLink("Home", href="/", active="exact"),
                 dbc.NavLink("Boiler", href="/boiler", active="exact"),
                 dbc.NavLink("Statistics", href="/statistics", active="exact"),
+            ],
+            vertical=True,
+            pills=True,
+        ),
+        html.Hr(),
+        dbc.Nav(
+            [
+                dbc.NavLink("Settings", href="/settings", active="exact"),
+                dbc.NavLink("Add User", href="/new_user", active="exact"),
             ],
             vertical=True,
             pills=True,
