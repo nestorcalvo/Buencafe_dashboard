@@ -1,7 +1,10 @@
 .content{
-    margin-left: 18rem;
-    margin-right: 2rem;
+
+    margin-left: 16rem;
+    margin-right: 0rem;
     padding: 2rem 1rem;
+    background: rgb(255,236,220);
+    background: linear-gradient(0deg, rgba(255,236,220,1) 0%, rgba(255,255,255,1) 46%);
 }
 .admin-name{
     padding-top: 10px;
