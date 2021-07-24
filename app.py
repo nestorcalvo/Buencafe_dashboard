@@ -17,6 +17,7 @@ external_scripts =[
 ]
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
 
+
 sidebar = html.Div(
     [
         html.Img(
