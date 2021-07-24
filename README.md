@@ -17,7 +17,7 @@
     Dashboard for Buencafé (fill info)
     <br />
     <br />
-    <a href="https://github.com/nestorcalvo/Buencafe_dashboard">View Demo</a>
+    <a href="https://github.com/nestorcalvo/Buencafe_dashboard">View Demo (Still not available)</a>
     ·
     <a href="https://github.com/nestorcalvo/Buencafe_dashboard/issues">Report Bug</a>
     ·
@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+List of things you need to use the software and how to install them.
 * python libraries
   ```sh
   pip install -r requirements.txt
