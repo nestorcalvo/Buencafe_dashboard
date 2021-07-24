@@ -21,16 +21,37 @@ sidebar = html.Div(
     [
         html.Img(
             src = "/assets/images/buencafe_icon_1.png",
-            className = "sidebarImage"
+            className = "sidebar-image"
         ),
         html.Hr(),
         html.H3(
-            "Admin", className="adminName"
+            "Admin", className="admin-name"
         ),
         dbc.Nav(
             [
-                dbc.NavLink("Boiler", href="/boiler", active="exact"),
-                dbc.NavLink("Statistics", href="/statistics", active="exact"),
+                html.Div(
+                    children = [
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-industry"), "Boiler"
+                            ], 
+                            href="/boiler", active="exact"
+                        )
+                    ],
+                    className = "nav-icon-link"
+                ),
+
+                html.Div(
+                    children=[
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-chart-bar"),"Statistics"
+                            ], 
+                            href="/statistics", active="exact"
+                        ),
+                    ],
+                    className = "nav-icon-link"
+                ),
             ],
             vertical=True,
             pills=True,
@@ -38,8 +59,29 @@ sidebar = html.Div(
         html.Hr(),
         dbc.Nav(
             [
-                dbc.NavLink("Settings", href="/settings", active="exact"),
-                dbc.NavLink("Add User", href="/new_user", active="exact"),
+                html.Div(
+                    children = [
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-cogs"), "Settings"
+                            ], 
+                            href="/settings", active="exact"
+                        )
+                    ],
+                    className = "nav-icon-link"
+                ),
+
+                html.Div(
+                    children=[
+                        dbc.NavLink(
+                            [
+                                html.I(className = "far fa-plus-square"),"Add User"
+                            ], 
+                            href="/new_user", active="exact"
+                        ),
+                    ],
+                    className = "nav-icon-link"
+                ),
             ],
             vertical=True,
             pills=True,
@@ -47,14 +89,14 @@ sidebar = html.Div(
         html.Div(
             html.Img(
                 src = "/assets/images/mintic_image.png",
-                className = "minticImage"
+                className = "mintic-image"
             )
         )
     ],
     className = "sidebar",
 )
 
-content = html.Div(id="pageContent", className = "content")
+content = html.Div(id="page-content", className = "content")
 
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
