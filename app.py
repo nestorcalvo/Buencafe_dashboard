@@ -17,6 +17,38 @@ external_scripts =[
 ]
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
 
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
+
+control_1 = dbc.Card(
+    [
+        dbc.FormGroup([
+            dbc.Label("Begining Month"),
+            dcc.Dropdown(
+                id = "begining-month",
+                options = [{
+                    "label": col,
+                    "value": col
+                } for col in months],
+                value="January"
+            )
+        ])
+    ]
+)
+control_2 = dbc.Card(
+    [
+        dbc.FormGroup([
+            dbc.Label("Ending Month"),
+            dcc.Dropdown(
+                id = "ending-month",
+                options = [{
+                    "label": col,
+                    "value": col
+                } for col in months],
+                value="February"
+            )
+        ])
+    ]
+)
 
 sidebar = html.Div(
     [
@@ -112,7 +144,16 @@ content = html.Div(
         html.H1(
             "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
             className = "content-title"
-        )
+        ),
+        dbc.Container([
+            dbc.Row([
+                dbc.Col(control_1, md=3),
+                dbc.Col(control_2, md=3)
+                ],
+                align="left"
+                )
+                ],
+            fluid=True)
     ],
     id="page-content", 
     className = "content")
