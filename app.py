@@ -7,6 +7,7 @@ import dash_bootstrap_components as dbc
 import dash_html_components as html
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objs as go
 
 external_scripts =[
     {
@@ -18,7 +19,7 @@ external_scripts =[
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
 
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
-
+#menus desplegables de manera vertical
 control_1 = dbc.Card(
     [
         dbc.FormGroup([
@@ -49,6 +50,10 @@ control_2 = dbc.Card(
         ])
     ]
 )
+
+#Dataframe y funcion para graficar
+df_luis = px.data.stocks()
+fig_luis = px.line(df_luis, x='date', y="GOOG")
 
 sidebar = html.Div(
     [
@@ -153,7 +158,8 @@ content = html.Div(
                 align="left"
                 )
                 ],
-            fluid=True)
+            fluid=True),
+        html.Div([dcc.Graph(figure=fig_luis)])
     ],
     id="page-content", 
     className = "content")
