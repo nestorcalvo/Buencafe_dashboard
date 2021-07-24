@@ -102,7 +102,17 @@ sidebar = html.Div(
 
 content = html.Div(
     [
-
+        html.Div(
+            html.Img(
+                src = "/assets/images/C1_icon_1.png",
+                className = "corr-icon"
+            ),
+            className = "corr-icon-container"
+        ),
+        html.H1(
+            "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
+            className = "content-title"
+        )
     ],
     id="page-content", 
     className = "content")
