@@ -8,9 +8,9 @@ import dash_html_components as html
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
+from flask import Flask
 
-from dash.dependencies import Input, Output
-
+from dash.dependencies import Input, Output,ClientsideFunction, State
 external_scripts =[
     {
         # Icons libraries
@@ -18,7 +18,13 @@ external_scripts =[
         'crossorigin': 'anonymous'
     }
 ]
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
+server = Flask(__name__)
+app = dash.Dash(__name__,server = server,external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
+server = app.server
+app.css.config.serve_locally = True
+app.scripts.config.serve_locally = True
+app.config.suppress_callback_exceptions = True
+
 app.title = "Buencafé Dashboard"
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
 #menus desplegables de manera vertical
@@ -52,15 +58,6 @@ control_2 = dbc.Card(
         ])
     ]
 )
-
-#Dataframe y grafica
-df_luis = px.data.stocks()
-fig_luis = px.line(df_luis, x='date', y="GOOG",
-                labels={
-                     "date": "Date",
-                     "GOOG": "Steam Generation (Ton/day)",
-                 },
-                title="Steam Generation")
 
 
 sidebar = html.Div(
@@ -170,7 +167,7 @@ layout_boiler = [
             fluid=True,
             className = "month-container"
         ),
-        html.Div([dcc.Graph(figure=fig_luis)])
+        html.Div([dcc.Graph(id="graph-luis")])
         ],
     className = "corr-icon-container"
     ),
@@ -193,7 +190,6 @@ layout_statistics = [
 
 
 
-
 @app.callback(     
     Output('page-content','children'),
     Input('url','pathname')
@@ -206,6 +202,23 @@ def layout_selectio(pathname):
     else:
         return html.Div()
 
+@app.callback(
+    Output('graph-luis','figure'),
+    Input('url','pathname')
+)
+def plot_fig1(pathname):
+    df_luis = px.data.stocks()
+    fig_luis = px.line(df_luis, x='date', y="GOOG",
+                labels={
+                    "date": "Date",
+                    "GOOG": "Steam Generation (Ton/day)",
+                },
+                title="Steam Generation")
+    fig_luis.update_layout(transition_duration=500)
+    return fig_luis
+
+
+
 app.layout = url_bar_and_content_div
 
 app.validation_layout = html.Div([
@@ -216,7 +229,8 @@ app.validation_layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host ='0.0.0.0', port = 8050)
+    app.run_server(debug=True, dev_tools_hot_reload=False)
+#    app.run_server(debug=True, host ='0.0.0.0', port = 8050, dev_tools_hot_reload=False)
 
 
 
