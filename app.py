@@ -59,15 +59,6 @@ control_2 = dbc.Card(
     ]
 )
 
-#Dataframe y grafica
-df_luis = px.data.stocks()
-fig_luis = px.line(df_luis, x='date', y="GOOG",
-                labels={
-                     "date": "Date",
-                     "GOOG": "Steam Generation (Ton/day)",
-                 },
-                title="Steam Generation")
-
 
 sidebar = html.Div(
     [
@@ -176,7 +167,7 @@ layout_boiler = [
             fluid=True,
             className = "month-container"
         ),
-        html.Div([dcc.Graph(figure=fig_luis)])
+        html.Div([dcc.Graph(id="graph-luis")])
         ],
     className = "corr-icon-container"
     ),
@@ -197,6 +188,8 @@ layout_statistics = [
     ),
 ]
 
+
+
 @app.callback(     
     Output('page-content','children'),
     Input('url','pathname')
@@ -208,6 +201,23 @@ def layout_selectio(pathname):
         return layout_statistics
     else:
         return html.Div()
+
+@app.callback(
+    Output('graph-luis','figure'),
+    Input('url','pathname')
+)
+def plot_fig1(pathname):
+    df_luis = px.data.stocks()
+    fig_luis = px.line(df_luis, x='date', y="GOOG",
+                labels={
+                    "date": "Date",
+                    "GOOG": "Steam Generation (Ton/day)",
+                },
+                title="Steam Generation")
+    fig_luis.update_layout(transition_duration=500)
+    return fig_luis
+
+
 
 app.layout = url_bar_and_content_div
 
