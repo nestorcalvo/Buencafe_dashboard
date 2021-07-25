@@ -7,6 +7,8 @@ import dash_bootstrap_components as dbc
 import dash_html_components as html
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objs as go
+
 from dash.dependencies import Input, Output
 
 external_scripts =[
@@ -17,6 +19,48 @@ external_scripts =[
     }
 ]
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
+
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
+#menus desplegables de manera vertical
+control_1 = dbc.Card(
+    [
+        dbc.FormGroup([
+            dbc.Label("Begining Month"),
+            dcc.Dropdown(
+                id = "begining-month",
+                options = [{
+                    "label": col,
+                    "value": col
+                } for col in months],
+                value="January"
+            )
+        ])
+    ]
+)
+control_2 = dbc.Card(
+    [
+        dbc.FormGroup([
+            dbc.Label("Ending Month"),
+            dcc.Dropdown(
+                id = "ending-month",
+                options = [{
+                    "label": col,
+                    "value": col
+                } for col in months],
+                value="February"
+            )
+        ])
+    ]
+)
+
+#Dataframe y grafica
+df_luis = px.data.stocks()
+fig_luis = px.line(df_luis, x='date', y="GOOG",
+                labels={
+                     "date": "Date",
+                     "GOOG": "Steam Generation (Ton/day)",
+                 },
+                title="Steam Generation")
 
 sidebar = html.Div(
     [
@@ -116,8 +160,19 @@ layout_boiler = [
         html.H2(
             "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
             className = "content-title"
-        )],
-        className = "corr-icon-container"
+        ),
+        dbc.Container([
+            dbc.Row([
+                dbc.Col(control_1, md=2),
+                dbc.Col(control_2, md=2)
+                ],
+                align="left"
+                )
+                ],
+            fluid=True),
+        html.Div([dcc.Graph(figure=fig_luis)])
+        ],
+    className = "corr-icon-container"
     ),
 
 ]
