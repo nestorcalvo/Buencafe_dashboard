@@ -51,12 +51,12 @@ control_2 = dbc.Card(
     ]
 )
 
-#Dataframe y funcion para graficar
+#Dataframe y grafica
 df_luis = px.data.stocks()
 fig_luis = px.line(df_luis, x='date', y="GOOG",
                 labels={
                      "date": "Date",
-                     "GOOG": "Steam Generation (Ton/h)",
+                     "GOOG": "Steam Generation (Ton/day)",
                  },
                 title="Steam Generation")
 
@@ -157,8 +157,8 @@ content = html.Div(
         ),
         dbc.Container([
             dbc.Row([
-                dbc.Col(control_1, md=3),
-                dbc.Col(control_2, md=3)
+                dbc.Col(control_1, md=2),
+                dbc.Col(control_2, md=2)
                 ],
                 align="left"
                 )
