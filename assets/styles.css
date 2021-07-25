@@ -28,6 +28,10 @@
 .admin-name{
     padding-top: 10px;
 }
+.month-container{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
 .sidebar{
     position: fixed;
     top: 0;

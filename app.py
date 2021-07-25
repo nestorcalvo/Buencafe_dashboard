@@ -165,12 +165,11 @@ layout_boiler = [
         dbc.Container([
             dbc.Row([
                 dbc.Col(control_1, md=2),
-                dbc.Col(control_2, md=2)
-                ],
-                align="left"
-                )
-                ],
-            fluid=True),
+                dbc.Col(control_2, md=2)],
+            align="left")],
+            fluid=True,
+            className = "month-container"
+        ),
         html.Div([dcc.Graph(figure=fig_luis)])
         ],
     className = "corr-icon-container"
