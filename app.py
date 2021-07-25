@@ -19,7 +19,7 @@ external_scripts =[
     }
 ]
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
-
+app.title = "Buencafé Dashboard"
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
 #menus desplegables de manera vertical
 control_1 = dbc.Card(
@@ -61,6 +61,7 @@ fig_luis = px.line(df_luis, x='date', y="GOOG",
                      "GOOG": "Steam Generation (Ton/day)",
                  },
                 title="Steam Generation")
+
 
 sidebar = html.Div(
     [
