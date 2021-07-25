@@ -6,11 +6,25 @@
     background: rgb(255,236,220);
     background: linear-gradient(0deg, rgba(255,236,220,1) 0%, rgba(255,255,255,1) 46%);
 }
-.content-title{
+
+.corr-icon-container{
+    display: flex;
+    flex-direction: column;
+}
+.corr-icon-container .corr-icon{
+    align-self: flex-end;
+    height: 10%;
+    width: 10%;
+    object-fit: contain;
+}
+.corr-icon-container .content-title{
+    align-self: stretch;
     padding-top: 2%;
     text-align: center;
-}
+    color: #7B4A49;
+    text-shadow: 2px, 2px;
 
+}
 .admin-name{
     padding-top: 10px;
 }
