@@ -5,9 +5,13 @@ import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
+from dash_html_components.Span import Span
 import pandas as pd
 import plotly.express as px
 from dash.dependencies import Input, Output
+from plotly.subplots import make_subplots
+
+
 
 external_scripts =[
     {
@@ -16,6 +20,20 @@ external_scripts =[
         'crossorigin': 'anonymous'
     }
 ]
+
+#Loading iris dataset
+df = px.data.iris() #columns = 'sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species','species_id'
+df_setosa = df[df["species"] == 'setosa']
+df_versicolor = df[df["species"] == 'versicolor']
+df_virginica = df[df["species"] == 'virginica']
+
+
+fig = px.line(df_setosa, x=df_setosa.index, y="sepal_length", color="species")
+fig.update_layout({
+    'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+    'paper_bgcolor': 'rgba(0, 0, 0, 0)'
+    })
+
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts)
 
 sidebar = html.Div(
@@ -106,9 +124,8 @@ url_bar_and_content_div = html.Div([
     html.Div(id='page-content', className = 'content')
 ])
 
-
 layout_boiler = [
-    html.Div(children = [
+    html.Div(children = [html.Div(children = [
         html.Img(
             src = "/assets/images/C1_icon_1.png",
             className = "corr-icon"
@@ -118,9 +135,89 @@ layout_boiler = [
             className = "content-title"
         )],
         className = "corr-icon-container"
-    ),
+        ),
+
+        
+
+
+        html.Div(
+                children=[
+                    html.Div(
+                        children=[
+                            html.P("Mes inicio", className="par"),
+                            dcc.Dropdown(
+                                        options=[
+                                            {'label':'opcion 1','value': 'opcion 1'},
+                                            {'label':'opcion 2','value': 'opcion 2'},
+                                            {'label':'opcion 3','value': 'opcion 3'},
+                                            {'label':'opcion 4','value': 'opcion 4'}
+                                        ],
+                                        value='opcion 1'
+                                )],
+                        className = "selector"
+                    ),
+                    html.Div(
+                        children=[
+                            html.P("Mes inicio"),
+                            dcc.Dropdown(
+                                        options=[
+                                            {'label':'opcion 1','value': 'opcion 1'},
+                                            {'label':'opcion 2','value': 'opcion 2'},
+                                            {'label':'opcion 3','value': 'opcion 3'},
+                                            {'label':'opcion 4','value': 'opcion 4'}
+                                        ],
+                                        value='opcion 1'
+                                )],
+                        className = "selector"
+                    ),
+                    html.H4("Consumo promedio"),
+
+                    html.Table(
+                        children=[
+                            html.Tr(children=[
+                                html.Th(""),
+                                html.Th("Borra"),
+                                html.Th("Cisco"),
+                                html.Th("Gas")
+                            ]),
+                            html.Tr(children=[
+                                html.Th("Mes"),
+                                html.Th("30"),
+                                html.Th("15"),
+                                html.Th("45")
+                            ]),
+                            html.Tr(children=[
+                                html.Th("Diario"),
+                                html.Th("30"),
+                                html.Th("15"),
+                                html.Th("45")
+                            ])
+                        ]
+                    ),
+
+                    html.Hr(),
+                    html.H4("Eficiencia promedio"),
+
+
+                    html.Div(
+                        children=[html.P("97%", className="ef-p"),
+                        html.Div(id="vert-line", className="ef-p"),
+                        html.P("97%", className="ef-p")],
+                        className="bottom-ef"
+                    )
+                    
+                    
+                    ],
+                className="drop-selectors",
+                #style={'display':'inline-block', 'width': '30%'}
+        )
+
+        ]
+    )
+    ,
 
 ]
+
 
 layout_statistics = [
     html.Div(children = [
@@ -132,6 +229,7 @@ layout_statistics = [
             "BOILER #6 OPTIMIZATION",
             className = "content-title"
         )],
+        
         className = "corr-icon-container"
     ),
 ]

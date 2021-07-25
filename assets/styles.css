@@ -94,3 +94,72 @@ hr{
     border: 1px solid #FFFFFF;
 }
 
+
+
+.selector{
+    display: inline-block;
+    width: 50%;
+}
+
+
+.selector p{
+    text-align: center;
+}
+
+.drop-selectors h4{
+    text-align: center;
+}
+
+.drop-selectors{
+    display: inline-block;
+    width:30%;
+    top: 30%;
+
+
+}
+
+.drop-selectors hr{
+    border: 1px solid black;
+}
+
+.drop-selectors table{
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+}
+
+.ef-p{
+    display: inline-block;
+    text-align: center;
+    font-size: 30px;
+    
+}
+
+.bottom-ef p{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.bottom-ef{
+    display: flex;
+    justify-content: center;
+}
+
+#vert-line{
+    border-left: 1px solid black;
+    height: 40px;
+}
+
+
+.bottom-part{
+    display: inline-block;
+}
+
+
+
+/*
+.par{
+    text-align: center;
+}
+*/
