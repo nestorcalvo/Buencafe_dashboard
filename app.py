@@ -113,7 +113,7 @@ layout_boiler = [
             src = "/assets/images/C1_icon_1.png",
             className = "corr-icon"
         ),
-        html.H1(
+        html.H2(
             "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
             className = "content-title"
         )],
@@ -122,14 +122,13 @@ layout_boiler = [
 
 ]
 
-
 layout_statistics = [
     html.Div(children = [
         html.Img(
             src = "/assets/images/C1_icon_1.png",
             className = "corr-icon"
         ),
-        html.H1(
+        html.H2(
             "BOILER #6 OPTIMIZATION",
             className = "content-title"
         )],
