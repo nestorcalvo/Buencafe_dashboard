@@ -35,7 +35,8 @@ It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
 
 ## Notebooks
 <ul>
-  <li></li>
+  <li><a href="https://colab.research.google.com/drive/1p1RqSQHJXcEduxTb6EHxYFxMYU5eRI9j">Notebook 1</a></li>
+  <li><a href="https://colab.research.google.com/drive/1lnE8Mjt6tbllGJz5PbYH6CSwNPz9Q7jA">Notebook 2</a></li>
 </ul>
 
 <!-- GETTING STARTED -->
