@@ -17,7 +17,7 @@
     Dashboard for Buencafé (fill info)
     <br />
     <br />
-    <a href="https://github.com/nestorcalvo/Buencafe_dashboard">View Demo (Still not available)</a>
+    <a href="http://ec2-54-90-46-208.compute-1.amazonaws.com:8050/">View Demo</a>
     ·
     <a href="https://github.com/nestorcalvo/Buencafe_dashboard/issues">Report Bug</a>
     ·
@@ -33,6 +33,11 @@
 Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
 It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
 
+## Notebooks
+<ul>
+  <li><a href="https://colab.research.google.com/drive/1p1RqSQHJXcEduxTb6EHxYFxMYU5eRI9j">Notebook 1</a></li>
+  <li><a href="https://colab.research.google.com/drive/1lnE8Mjt6tbllGJz5PbYH6CSwNPz9Q7jA">Notebook 2</a></li>
+</ul>
 
 <!-- GETTING STARTED -->
 ## Getting Started
