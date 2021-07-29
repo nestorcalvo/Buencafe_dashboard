@@ -100,8 +100,9 @@ sidebar = html.Div(
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     sidebar,
+    #html.Div(id='background-content', className = 'background-content', children = []),
     html.Div(id='page-content', className = 'content', children = [])
-])
+], className = "top-layout")
 
 @app.callback(     
     Output('page-content','children'),
