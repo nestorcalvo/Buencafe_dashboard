@@ -117,7 +117,6 @@ url_bar_and_content_div = html.Div([
     html.Div(id='page-content', className = 'content')
 ])
 
-
 layout_boiler = [
     html.Div(children = [
         html.Img(
@@ -128,6 +127,11 @@ layout_boiler = [
             "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
             className = "content-title"
         ),
+        html.P(
+            "Select date range that you want to see:",
+            style={"color": "black", "margin-top": "5px"}
+        )
+        ,
         dcc.DatePickerRange(
             id='my-date-picker-range',
             min_date_allowed=date(2018, 2, 6),
@@ -138,7 +142,8 @@ layout_boiler = [
             month_format="MMMM, YYYY",
             number_of_months_shown=3
         ),
-        html.Div(id='output-container-date-picker-range')
+        html.Div(id='output-container-date-picker-range',
+            className="month-container")
         ,
         dcc.Graph(id="graph-luis")
         ],
@@ -160,7 +165,6 @@ layout_statistics = [
         className = "corr-icon-container"
     ),
 ]
-
 
 
 @app.callback(     
@@ -196,7 +200,6 @@ def update_figure(start_date, end_date) :
                     yaxis_title='Steam (Ton/day)',
                     transition_duration=500)
     return fig
-
 
 
 app.layout = url_bar_and_content_div
