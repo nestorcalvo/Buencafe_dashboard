@@ -8,6 +8,8 @@ import dash_html_components as html
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
+from datetime import date
+
 from flask import Flask
 
 from dash.dependencies import Input, Output,ClientsideFunction, State
@@ -26,39 +28,6 @@ app.scripts.config.serve_locally = True
 app.config.suppress_callback_exceptions = True
 
 app.title = "Buencafé Dashboard"
-months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"]
-#menus desplegables de manera vertical
-control_1 = dbc.Card(
-    [
-        dbc.FormGroup([
-            dbc.Label("Begining Month"),
-            dcc.Dropdown(
-                id = "begining-month",
-                options = [{
-                    "label": col,
-                    "value": col
-                } for col in months],
-                value="January"
-            )
-        ])
-    ]
-)
-control_2 = dbc.Card(
-    [
-        dbc.FormGroup([
-            dbc.Label("Ending Month"),
-            dcc.Dropdown(
-                id = "ending-month",
-                options = [{
-                    "label": col,
-                    "value": col
-                } for col in months],
-                value="February"
-            )
-        ])
-    ]
-)
-
 
 sidebar = html.Div(
     [
@@ -159,15 +128,19 @@ layout_boiler = [
             "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
             className = "content-title"
         ),
-        dbc.Container([
-            dbc.Row([
-                dbc.Col(control_1, md=2),
-                dbc.Col(control_2, md=2)],
-            align="left")],
-            fluid=True,
-            className = "month-container"
+        dcc.DatePickerRange(
+            id='my-date-picker-range',
+            min_date_allowed=date(2018, 2, 6),
+            max_date_allowed=date(2019, 6, 30),
+            initial_visible_month=date(2018, 2, 6),
+            end_date=date(2019, 6, 30),
+            clearable=True,
+            month_format="MMMM, YYYY",
+            number_of_months_shown=3
         ),
-        html.Div([dcc.Graph(id="graph-luis")])
+        html.Div(id='output-container-date-picker-range')
+        ,
+        dcc.Graph(id="graph-luis")
         ],
     className = "corr-icon-container"
     ),
@@ -204,18 +177,25 @@ def layout_selectio(pathname):
 
 @app.callback(
     Output('graph-luis','figure'),
-    Input('url','pathname')
+    [Input('my-date-picker-range', 'start_date'),
+    Input('my-date-picker-range', 'end_date')]
 )
-def plot_fig1(pathname):
-    df_luis = px.data.stocks()
-    fig_luis = px.line(df_luis, x='date', y="GOOG",
-                labels={
-                    "date": "Date",
-                    "GOOG": "Steam Generation (Ton/day)",
-                },
-                title="Steam Generation")
-    fig_luis.update_layout(transition_duration=500)
-    return fig_luis
+
+def update_figure(start_date, end_date) :
+    df = px.data.stocks()
+    df.index = df["date"]
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x = df.loc[start_date: end_date]["date"],
+        y = df.loc[start_date: end_date]["GOOG"],
+        mode = "lines",
+        name = "Steam"
+    ))
+    fig.update_layout(title = 'Steam Generation',
+                    xaxis_title='Date',
+                    yaxis_title='Steam (Ton/day)',
+                    transition_duration=500)
+    return fig
 
 
 
