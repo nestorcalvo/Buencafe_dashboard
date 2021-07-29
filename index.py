@@ -110,7 +110,7 @@ app.layout = html.Div([
         html.Div(id='page-content', className = 'content', children = []),
         size = 160,
         speed_multiplier = 0.8,
-        debounce = 1000,
+        debounce = 1000
     )
 ], className = "top-layout")
 
