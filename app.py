@@ -7,7 +7,7 @@ external_scripts =[
         # Icons libraries
         'src': 'https://kit.fontawesome.com/b359ae410d.js',
         'crossorigin': 'anonymous'
-    }
+    },
 ]
 server = Flask(__name__)
 app = dash.Dash(__name__, server = server,external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts ,suppress_callback_exceptions=True,

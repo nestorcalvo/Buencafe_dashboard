@@ -2,7 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-
+import dash_loading_spinners as dls
 from app import app
 from app import server
 
@@ -20,12 +20,17 @@ sidebar = html.Div(
             src = "/assets/images/buencafe_icon_1.png",
             className = "sidebar-image"
         ),
-        html.I(
-            className = "fas fa-user-tie"
+        html.Div(
+            children = [
+            html.I(
+                className = "fas fa-user-tie"
+            ),
+            html.H3(
+                "Admin", className="admin-name"
+            ),
+            ],className = "wrapper-user-tie"
         ),
-        html.H3(
-            "Admin", className="admin-name"
-        ),
+
         html.Hr(),
         dbc.Nav(
             [
@@ -101,7 +106,12 @@ app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     sidebar,
     #html.Div(id='background-content', className = 'background-content', children = []),
-    html.Div(id='page-content', className = 'content', children = [])
+    dls.Hash(
+        html.Div(id='page-content', className = 'content', children = []),
+        size = 160,
+        speed_multiplier = 0.8,
+        debounce = 1000,
+    )
 ], className = "top-layout")
 
 @app.callback(     
