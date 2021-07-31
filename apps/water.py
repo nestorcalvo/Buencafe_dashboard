@@ -16,12 +16,11 @@ layout= [
             className = "corr-icon"
         ),
         html.H2(
-            "OPTIMIZATION OF THE STEAM BOILER OPERATION FOR BUENCAFE LIOFILIZADO DE COLOMBIA",
+            "Water Analitycs",
             className = "content-title"
         ),
         html.P(
-            "Select date range that you want to see:",
-            style={"color": "black", "margin-top": "5px"}
+            "Select date range that you want to see:"
         )
         ,
         dcc.DatePickerRange(
