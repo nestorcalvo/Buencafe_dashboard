@@ -6,6 +6,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
 from datetime import date
+import dash_loading_spinners as dls
 from dash.dependencies import Input, Output, ClientsideFunction, State
 from app import app
 
@@ -36,7 +37,12 @@ layout= [
         html.Div(id='output-container-date-picker-range',
             className="month-container")
         ,
-        dcc.Graph(id="graph-luis")
+        dls.Hash(
+            dcc.Graph(id="graph-luis"),
+            size = 160,
+            speed_multiplier = 0.8,
+            debounce = 200
+        )
         ],
     className = "corr-icon-container"
     ),

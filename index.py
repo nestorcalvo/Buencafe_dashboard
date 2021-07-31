@@ -1,3 +1,4 @@
+import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
@@ -5,7 +6,7 @@ from dash.dependencies import Input, Output
 import dash_loading_spinners as dls
 from app import app
 from app import server
-
+import functools
 from apps import water, settings, fuel, efficiency, home
 
 
@@ -128,19 +129,24 @@ app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     sidebar,
     #html.Div(id='background-content', className = 'background-content', children = []),
-    dls.Hash(
-        html.Div(id='page-content', className = 'content', children = []),
-        size = 160,
-        speed_multiplier = 0.8,
-        debounce = 1000
-    )
+    html.Div(id='page-content', className = 'content', children = []),
+    # dls.Hash(
+    #     html.Div(id='page-content', className = 'content', children = []),
+    #     size = 160,
+    #     speed_multiplier = 0.8,
+    #     debounce = 1000
+    # )
 ], className = "top-layout")
 
 @app.callback(     
     Output('page-content','children'),
     Input('url','pathname')
 )
+@functools.lru_cache(maxsize=32)
 def layout_selection(pathname):
+    # for value in range(0,20000):
+    #     print(value)
+    #print(dash.callback_context.triggered)
     if pathname == '/apps/water':
         return water.layout
     elif pathname == '/apps/home':
