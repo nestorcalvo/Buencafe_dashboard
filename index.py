@@ -140,13 +140,13 @@ app.layout = html.Div([
 
 @app.callback(     
     Output('page-content','children'),
-    Input('url','pathname'), prevent_initial_call=True
+    Input('url','pathname')
 )
 @functools.lru_cache(maxsize=32)
 def layout_selection(pathname):
     # for value in range(0,20000):
     #     print(value)
-    print(dash.callback_context.triggered)
+    #print(dash.callback_context.triggered)
     if pathname == '/apps/water':
         return water.layout
     elif pathname == '/apps/home':
