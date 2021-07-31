@@ -6,7 +6,7 @@ import dash_loading_spinners as dls
 from app import app
 from app import server
 
-from apps import water, settings, fuel, aboutus, efficiency, home
+from apps import water, settings, fuel, efficiency, home
 
 
 app.css.config.serve_locally = True
