@@ -9,7 +9,7 @@ layout = [
             className = "corr-icon"
         ),
         html.H2(
-            "BOILER #6 OPTIMIZATION",
+            "Home",
             className = "content-title"
         )],
         className = "corr-icon-container"

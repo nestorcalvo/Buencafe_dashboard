@@ -6,7 +6,7 @@ import dash_loading_spinners as dls
 from app import app
 from app import server
 
-from apps import boiler, settings, statistics, user
+from apps import water, settings, fuel, efficiency, home
 
 
 app.css.config.serve_locally = True
@@ -20,27 +20,37 @@ sidebar = html.Div(
             src = "/assets/images/buencafe_icon_1.png",
             className = "sidebar-image"
         ),
-        html.Div(
-            children = [
-            html.I(
-                className = "fas fa-user-tie"
-            ),
-            html.H3(
-                "Admin", className="admin-name"
-            ),
-            ],className = "wrapper-user-tie"
-        ),
-
-        html.Hr(),
         dbc.Nav(
             [
                 html.Div(
                     children = [
                         dbc.NavLink(
                             [
-                                html.I(className = "fas fa-industry"), "Boiler"
+                                html.I(className = "fas fa-house-user"), "Home"
                             ], 
-                            href="/apps/boiler", active="exact"
+                            href="/apps/home", active="exact"
+                        )
+                    ],
+                    className = "nav-icon-link"
+                )
+            ],
+            vertical=True,
+            pills=True,
+        ),
+        html.Hr(),
+        
+        html.Div([
+            html.H4("Analytics")
+        ]),
+        dbc.Nav(
+            [
+                html.Div(
+                    children = [
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-faucet"), "Water"
+                            ], 
+                            href="/apps/water", active="exact"
                         )
                     ],
                     className = "nav-icon-link"
@@ -50,13 +60,25 @@ sidebar = html.Div(
                     children=[
                         dbc.NavLink(
                             [
-                                html.I(className = "fas fa-chart-bar"),"Statistics"
+                                html.I(className = "fas fa-chart-bar"),"Fuel"
                             ], 
-                            href="/apps/statistics", active="exact"
+                            href="/apps/fuel", active="exact"
                         ),
                     ],
                     className = "nav-icon-link"
                 ),
+
+                html.Div(
+                    children = [
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-industry"), "Efficiency"
+                            ], 
+                            href="/apps/efficiency", active="exact"
+                        )
+                    ],
+                    className = "nav-icon-link"
+                )
             ],
             vertical=True,
             pills=True,
@@ -80,9 +102,9 @@ sidebar = html.Div(
                     children=[
                         dbc.NavLink(
                             [
-                                html.I(className = "far fa-plus-square"),"Add User"
+                                html.I(className = "far fa-address-card"),"About us"
                             ], 
-                            href="/apps/user", active="exact"
+                            href="/apps/aboutus", active="exact"
                         ),
                     ],
                     className = "nav-icon-link"
@@ -119,10 +141,14 @@ app.layout = html.Div([
     Input('url','pathname')
 )
 def layout_selection(pathname):
-    if pathname == '/apps/boiler':
-        return boiler.layout
-    elif pathname == '/apps/statistics':
-        return statistics.layout
+    if pathname == '/apps/water':
+        return water.layout
+    elif pathname == '/apps/home':
+        return home.layout
+    elif pathname == '/apps/fuel':
+        return fuel.layout
+    elif pathname == '/apps/efficiency':
+        return efficiency.layout
     else:
         return html.Div()
 
