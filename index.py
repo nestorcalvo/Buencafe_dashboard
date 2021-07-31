@@ -6,7 +6,7 @@ import dash_loading_spinners as dls
 from app import app
 from app import server
 
-from apps import boiler, settings, statistics, user
+from apps import boiler, settings, statistics, user, efficiency
 
 
 app.css.config.serve_locally = True
@@ -57,6 +57,18 @@ sidebar = html.Div(
                     ],
                     className = "nav-icon-link"
                 ),
+                html.Div(
+                    children = [
+                        dbc.NavLink(
+                            [
+                                html.I(className = "fas fa-cogs"), "Efficiency"
+                            ], 
+                            href="/apps/efficiency", active="exact"
+                        )
+                    ],
+                    className = "nav-icon-link"
+                )
+
             ],
             vertical=True,
             pills=True,
@@ -123,6 +135,8 @@ def layout_selection(pathname):
         return boiler.layout
     elif pathname == '/apps/statistics':
         return statistics.layout
+    elif pathname == '/apps/efficiency':
+        return efficiency.layout
     else:
         return html.Div()
 

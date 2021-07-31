@@ -58,17 +58,9 @@ layout = [
         html.H2(
             "BOILER #6 OPTIMIZATION",
             className = "content-title"
-        ),html.Div(grouped_cards, style={'background-color':'transparent',"padding-top":"3rem"}),
+        ),
+        html.Div(grouped_cards, style={'background-color':'transparent',"padding-top":"3rem"}),
         ],
         className = "corr-icon-container"
     ),
 ]
-
-
-"""
-html.Div(
-            children=[html.Div(simple_card, className="card"),
-            html.Div(simple_card2, className="card"),
-            html.Div(simple_card3, className="card")],
-            style={"padding-top": "5em", "background": "green"}
-        )"""
