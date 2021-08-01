@@ -3,11 +3,13 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import plotly.express as px
-from app import app, database
+from app import app#, database
 
-df = database.get_csv("airports.csv")
+#df = database.get_csv("airports.csv")
+#fig = px.histogram(df, x="Code", height=340)
 
-fig = px.histogram(df, x="Code", height=340)
+df = px.data.iris() # iris is a pandas DataFrame
+fig = px.scatter(df, x="sepal_width", y="sepal_length", height=340)
 
 graph_1 =  dbc.Card(
     [
