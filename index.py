@@ -61,7 +61,7 @@ sidebar = html.Div(
                     children=[
                         dbc.NavLink(
                             [
-                                html.I(className = "fas fa-chart-bar"),"Fuel"
+                                html.I(className = "fas fa-gas-pump"),"Fuel"
                             ], 
                             href="/apps/fuel", active="exact"
                         ),
@@ -73,7 +73,7 @@ sidebar = html.Div(
                     children = [
                         dbc.NavLink(
                             [
-                                html.I(className = "fas fa-industry"), "Efficiency"
+                                html.I(className = "fas fa-percentage"), "Efficiency"
                             ], 
                             href="/apps/efficiency", active="exact"
                         )
