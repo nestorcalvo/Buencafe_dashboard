@@ -17,7 +17,7 @@
     Dashboard for Buencafé (fill info)
     <br />
     <br />
-    <a href="http://ec2-54-90-46-208.compute-1.amazonaws.com:8050/">View Demo</a>
+    <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home">View Demo</a>
     ·
     <a href="https://github.com/nestorcalvo/Buencafe_dashboard/issues">Report Bug</a>
     ·
@@ -28,7 +28,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home)
 
 Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
 It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
