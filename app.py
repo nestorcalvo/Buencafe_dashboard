@@ -10,7 +10,7 @@ external_scripts =[
         'crossorigin': 'anonymous'
     },
 ]
-database = DatabaseHelper('buencafeservers3')
+#database = DatabaseHelper('buencafeservers3')
 server = Flask(__name__)
 app = dash.Dash(__name__, server = server,external_stylesheets=[dbc.themes.BOOTSTRAP], external_scripts=external_scripts ,suppress_callback_exceptions=True,
                 meta_tags=[{'name': 'viewport',
