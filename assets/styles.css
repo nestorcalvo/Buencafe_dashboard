@@ -49,9 +49,7 @@ body {
 }
 .sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  height: 100%;
   width: 14rem;
   padding: 2rem 1rem;
   background: rgb(177, 59, 47);
@@ -91,18 +89,20 @@ body {
 
 .nav-pills {
   font-size: large;
-  text-shadow: 1px 3px 8px;
+  /* text-shadow: 1px 3px 8px; */
   width: 100%;
-  padding-top: 1% !important;
-  padding-bottom: 1% !important;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .nav-link {
+  outline: 0;
   color: #ffffff;
   position: relative;
-  margin-top: 1% !important;
-  margin-bottom: 1% !important;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
+
 .wrapper-user-tie {
   display: flex;
   flex-direction: column;
