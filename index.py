@@ -7,7 +7,7 @@ import dash_loading_spinners as dls
 from app import app
 from app import server
 import functools
-from apps import water, settings, fuel, efficiency, home
+from apps import water, settings, fuel, efficiency, home, about
 
 
 app.css.config.serve_locally = True
@@ -155,6 +155,8 @@ def layout_selection(pathname):
         return fuel.layout
     elif pathname == '/apps/efficiency':
         return efficiency.layout
+    elif pathname == '/apps/aboutus':
+        return about.layout
     else:
         return html.Div()
 
