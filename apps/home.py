@@ -40,6 +40,6 @@ layout = [
     ],
     controls=True,
     indicators=True,
+    className="carousel-home",
 )
-
 ]
