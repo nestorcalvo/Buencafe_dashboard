@@ -2,3 +2,4 @@
 .env 
 .DS_Store
 checkports.sh
+KNN_hourly.csv
