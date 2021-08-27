@@ -10,6 +10,111 @@ import dash_loading_spinners as dls
 from dash.dependencies import Input, Output, ClientsideFunction, State
 from app import app
 
+features = ["Screw Speed", "Gas Flow Rate", "Steam Pressure", "Oven-Home Temperature",
+            "Water Temperature", "Oxygen_pct", "Oven-Home Pressure", "Combustion Air Pressure",
+            "Temperature before prear", "Temperature after prear", "Burner Position", "Burner_pct", 
+            "Borra Flow Rate_kgh", "Cisco Flow Rate_kgh"]
+
+cardtab_1 = dbc.Card([
+        html.Div(
+            id='output-container-date-picker-range',
+            className="month-container"
+        ),
+        dls.Hash(
+            dcc.Graph(id="graph-steam"),
+            size = 160,
+            speed_multiplier = 0.8,
+            debounce = 200
+                    )
+    ])
+
+cardtab_2 = dbc.Card([
+        html.Div(
+            id='output-container-date-picker-range',
+            className="month-container"
+        ),
+        dls.Hash(
+            dcc.Graph(id="graph-distribution"),
+            size = 160,
+            speed_multiplier = 0.8,
+            debounce = 200
+            )
+    ])
+
+card_3 = dbc.Card(
+    [
+        dbc.Col([
+            dbc.Col([
+                html.P(
+                    "Select date range that you want to see:"
+                ),
+                dcc.DatePickerRange(
+                    id='my-date-picker-range',
+                    min_date_allowed=date(2020, 10, 1),
+                    max_date_allowed=date(2021, 6, 30),
+                    initial_visible_month=date(2020, 10, 1),
+                    end_date=date(2021, 6, 30),
+                    clearable=True,
+                    month_format="MMMM, YYYY",
+                    number_of_months_shown=3
+                )
+            ]),
+            html.Hr(),
+            dbc.Col([
+                html.P(
+                    "Select the data frequency:"
+                ),
+                dcc.RadioItems(
+                    id='frequency-radioitems',
+                    labelStyle={"display": "inline-block"},
+                    options= [
+                        {"label": "Daily", "value": "data_daily"},
+                        {"label": "Hourly", "value": "data_hourly"}
+                    ], value= "data_daily",
+                    style= {"color": "black"}
+                )
+            ])
+        ])
+    ])
+
+card_4 = dbc.Card([
+        dbc.Col([
+            dbc.FormGroup([
+                dbc.Label("Y - Axis"),
+                dcc.Dropdown(
+                    id="y-variable",
+                    options=[{
+                        "label": col,
+                        "value": col
+                    } for col in features],
+                    value="Gas Flow Rate",
+                ),
+            ]),
+            html.H6("Efficiency Range"),
+            dcc.RangeSlider(
+                id='slider-efficiency',
+                min=0,
+                max=1.00,
+                step=0.01,
+                value=[0, 1.00]
+            ),
+            html.P(id='range-efficiency')
+        ])
+    ])
+
+card_5 = dbc.Card([
+        html.Div(
+            id='output-container-date-picker-range',
+            className="month-container"
+        ),
+        dls.Hash(
+            dcc.Graph(id="graph-comparison"),
+            size = 160,
+            speed_multiplier = 0.8,
+            debounce = 200
+        )
+    ])
+
 layout= [
     html.Div([
         html.Img(
@@ -21,50 +126,30 @@ layout= [
             className = "content-title"
         ),
         html.Div([
-            html.P(
-                "Select the data frequency:"
-            ),
-            dcc.RadioItems(
-                id='frequency-radioitems',
-                labelStyle={"display": "inline-block"},
-                options= [
-                    {"label": " Weekly  ", "value": "data_weekly"},
-                    {"label": " Daily  ", "value": "data_daily"},
-                    {"label": " Hourly  ", "value": "data_hourly"}
-                ], value= "data_daily",
-                style= {"color": "black"}
-            )
-        ]),
-        html.Div([
-            html.P(
-                "Select date range that you want to see:"
-            ),
-            dcc.DatePickerRange(
-                id='my-date-picker-range',
-                min_date_allowed=date(2020, 10, 1),
-                max_date_allowed=date(2021, 6, 30),
-                initial_visible_month=date(2020, 10, 1),
-                end_date=date(2021, 6, 30),
-                clearable=True,
-                month_format="MMMM, YYYY",
-                number_of_months_shown=3
+            dbc.Row([
+                dbc.Col(
+                    dbc.Tabs([
+                        dbc.Tab(cardtab_1, label="Time series"),
+                        dbc.Tab(cardtab_2, label="Distribution"),
+                    ]),
+                    width=9
                 ),
-            html.Div(
-                id='output-container-date-picker-range',
-                className="month-container")
+                dbc.Col(
+                    card_3, width=3                  
+                )
             ]),
-        dls.Hash(
-            dcc.Graph(id="graph-steam"),
-            size = 160,
-            speed_multiplier = 0.8,
-            debounce = 200
-        ),
+            dbc.Row([
+                dbc.Col(
+                    card_4, width=3
+                ),
+                dbc.Col(
+                    card_5, width=9
+                )
+            ]),
+        ])
+    ]),
         dcc.Store(id='intermediate-value')
-        ],
-    className = "corr-icon-container"
-    ),
-
-]
+        ]
 
 @app.callback(
     Output('intermediate-value','data'),
@@ -72,11 +157,7 @@ layout= [
 )
 
 def update_frequency(value):
-    if value == "data_weekly":
-        df = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
-        data = df.set_index(["Time"]).resample("W").mean()
-        data["Time"] = data.index
-    elif value == "data_daily":
+    if value == "data_daily":
         data = pd.read_csv("data/data_interpolate_daily.csv", parse_dates=["Time"])
         data.set_index(["Time"], inplace=True)
     elif value == "data_hourly":
@@ -102,6 +183,46 @@ def update_figure(data, start_date, end_date):
     ))
     fig.update_layout(title = 'Steam Generation',
                     xaxis_title='Date',
-                    yaxis_title='Steam (Kg/day)',
+                    yaxis_title='Steam (Kg/hour)',
                     transition_duration=500)
     return fig
+
+@app.callback(
+    Output('graph-distribution','figure'),
+    [Input('my-date-picker-range', 'start_date'),
+    Input('my-date-picker-range', 'end_date')]
+)
+
+def update_figure2(start_date, end_date):
+    df = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
+    df.set_index(["Time"], inplace=True)
+
+    fig = px.histogram(df.loc[start_date: end_date], x="Steam Flow Rate", nbins=100)
+    fig.update_layout(title = 'Steam Flow Rate Distribution',
+                    xaxis_title='Steam (Kg/hour)',
+                    yaxis_title='Count',
+                    transition_duration=500)
+    return fig
+
+@app.callback(
+    [Output("graph-comparison", "figure"),
+    Output("range-efficiency", "children")],
+    [Input("y-variable", "value"),
+    Input("slider-efficiency", "value"),]
+)
+
+def update_figure3(feature, efficiency):
+    df2 = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
+    df2.set_index(["Time"], inplace=True)
+
+    fig = px.scatter(
+        x = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])]["Steam Flow Rate"],
+        y = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])][feature]
+    )
+    fig.update_layout(title = 'Steam Flow Rate Comparison',
+                    xaxis_title= 'Steam (Kg/hour)',
+                    yaxis_title= feature,
+                    transition_duration= 500)
+    
+    range_efficiency = str(efficiency[0]) + " - " + str(efficiency[1])
+    return fig, range_efficiency
