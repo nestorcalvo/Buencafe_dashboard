@@ -191,5 +191,5 @@ def layout_selection(pathname):
         return html.Div()
 
 if __name__ == '__main__':
-    app.run_server(debug=True, dev_tools_hot_reload=False)
+    app.run_server(debug=True, dev_tools_hot_reload=True)
     #app.run_server(debug=True, host ='0.0.0.0', port = 8050, dev_tools_hot_reload=False)
