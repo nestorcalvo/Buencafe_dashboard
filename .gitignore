@@ -2,4 +2,8 @@
 .env 
 .DS_Store
 checkports.sh
+
 workspace.code-workspace
+
+data
+KNN_hourly.csv

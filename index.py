@@ -9,13 +9,13 @@ from app import server
 import functools
 from apps import water, settings, fuel, efficiency, home, about
 
-
 app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
 app.config.suppress_callback_exceptions = True
 app.title = "Buencafé Dashboard"
 
 sidebar = html.Div(
+
     children = [
         # html.Img(
         #     src = "/assets/images/buencafe_icon_1.png",
@@ -35,6 +35,7 @@ sidebar = html.Div(
                                 )
                             ],
                             className = "nav-icon-link"
+
                         )
                     ],
                     vertical=True,
@@ -191,4 +192,4 @@ def layout_selection(pathname):
 
 if __name__ == '__main__':
     app.run_server(debug=True, dev_tools_hot_reload=False)
-#    app.run_server(debug=True, host ='0.0.0.0', port = 8050, dev_tools_hot_reload=False)
+    #app.run_server(debug=True, host ='0.0.0.0', port = 8050, dev_tools_hot_reload=False)
