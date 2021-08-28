@@ -6,17 +6,17 @@ from app import app
 dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 layout = [
-    html.Div(children = [
-        html.Img(
-            src = "/assets/images/C1_icon_1.png",
-            className = "corr-icon"
-        ),
-        html.H2(
-            "Home",
-            className = "content-title"
-        )],
-        className = "corr-icon-container"
-    ),
+    # html.Div(children = [
+    #     html.Img(
+    #         src = "/assets/images/C1_icon_1.png",
+    #         className = "corr-icon"
+    #     ),
+    #     html.H2(
+    #         "Home",
+    #         className = "content-title"
+    #     )],
+    #     className = "corr-icon-container"
+    # ),
     dbc.Carousel(
     items=[
         {

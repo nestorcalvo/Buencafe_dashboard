@@ -18,7 +18,7 @@ graph_1 =  dbc.Card(
     [
         dcc.Graph(id='graph-efficiency'),
     ],
-    style={"min-height":"20rem","max-height":"20rem"},
+    style={"minHeight":"20rem","maxHeight":"20rem"},
 )
 
 slider_steam = dcc.RangeSlider(
@@ -63,7 +63,7 @@ sliders_1 =  dbc.Card(
         slider_gas,
         html.P(id='range-gas'),
     ],
-    style={"min-height":"18rem","max-height":"18rem"},
+    style={"minHeight":"18rem","maxHeight":"18rem"},
 )
 
 sliders_2 = dbc.Card(
@@ -76,6 +76,7 @@ sliders_2 = dbc.Card(
         slider_cisco,
         html.P(id='range-cisco')
     ],
+
     style={"min-height":"18rem","max-height":"18rem"},
 )
 
@@ -86,6 +87,7 @@ sliders_2 = dbc.Card(
 grouped_cards = html.Div(children=[
     dbc.Row(children=[dbc.Col(graph_1, style={'padding-top':'2rem'})]),
     dbc.Row(children=[dbc.Col(sliders_1, style={'padding-top':'2rem'}),dbc.Col(sliders_2, style={'padding-top':'2rem'})])])
+
         
 layout = [
     html.Div(children = [

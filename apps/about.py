@@ -99,12 +99,12 @@ graph_6 =  dbc.Card(children=[
 
 
 grouped_cards = html.Div(children=[
-        dbc.Row([dbc.Col(graph_1, style={'padding-top':'2rem'}),
-                dbc.Col(graph_2, style={'padding-top':'2rem'})]),
-        dbc.Row([dbc.Col(graph_3, style={'padding-top':'2rem'}),
-                dbc.Col(graph_4, style={'padding-top':'2rem'})]),
-        dbc.Row([dbc.Col(graph_5, style={'padding-top':'2rem'}),
-                dbc.Col(graph_6, style={'padding-top':'2rem'})])
+        dbc.Row([dbc.Col(graph_1, style={'paddingTop':'2rem'}),
+                dbc.Col(graph_2, style={'paddingTop':'2rem'})]),
+        dbc.Row([dbc.Col(graph_3, style={'paddingTop':'2rem'}),
+                dbc.Col(graph_4, style={'paddingTop':'2rem'})]),
+        dbc.Row([dbc.Col(graph_5, style={'paddingTop':'2rem'}),
+                dbc.Col(graph_6, style={'paddingTop':'2rem'})])
         ])
         
 layout = [
