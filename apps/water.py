@@ -134,7 +134,7 @@ layout= [
                         ],
                         id="card-tabs",
                         card=True,
-                        active_tab="tab-1",
+                        active_tab="tab-0",
                     ),
                     width=9
                 ),

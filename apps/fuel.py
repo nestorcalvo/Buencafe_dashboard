@@ -122,7 +122,7 @@ layout= [
                         ],
                         id="card-tabs2",
                         card=True,
-                        active_tab="tab-1",
+                        active_tab="tab-0",
                     ),
                     width=9
                 ),
