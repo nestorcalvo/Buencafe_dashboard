@@ -116,7 +116,7 @@ layout = [
     Input('slider-cisco', 'value')]
 )
 def update_figure(steam, gas, borra, cisco) :
-    df = pd.read_csv("KNN_hourly.csv") #Cambiar esta linea por la base de datos del servidor
+    df = pd.read_csv("data/data_interpolate_hourly.csv") #Cambiar esta linea por la base de datos del servidor
     df = df[(df['Steam Flow Rate'] <steam[1]) & (df['Steam Flow Rate'] >steam[0]) \
             & (df['Gas Flow Rate'] <gas[1]) & (df['Gas Flow Rate'] >gas[0]) \
             & (df['Borra Flow Rate_kgh'] <borra[1]) & (df['Borra Flow Rate_kgh'] >borra[0]) \
