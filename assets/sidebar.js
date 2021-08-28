@@ -14,7 +14,6 @@ window.onload = () => {
 		contentWrapper.addEventListener('click', event => {
 				
 			if (sidebarBox.classList.contains('active')) {
-					
 				sidebarBtn.classList.remove('active');
 				sidebarBox.classList.remove('active');
 			}
@@ -27,8 +26,21 @@ window.onload = () => {
 				sidebarBox.classList.remove('active');
 			}
 		})
-	},2000)
-	
+		
+		const items = document.querySelectorAll("[class^=item__]")
+		console.log(items)
+		for (var i = 0; i < items.length; i++) {
+			items[i].addEventListener('click', () => {
+				console.log("Item encontrado")
+				if (sidebarBox.classList.contains('active')) {
+					sidebarBtn.classList.remove('active');
+					sidebarBox.classList.remove('active');
+				}
+			})
+		}
+
+	}, 2000)
 }
+
 // 	}, 100
 // )
