@@ -8,6 +8,8 @@ html {
 }
 body {
   margin: 0px;
+  width: 100vw;
+
   background: hsla(212, 35%, 58%, 1);
 
   background: linear-gradient(
@@ -44,23 +46,35 @@ body {
   align-items: center;
 }
 
+#graph-distribution,
+#graph-comparison {
+  height: 100%;
+}
 .wrapper__steam-data {
   display: flex;
   flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   gap: 1rem;
 }
 .graph_col_1 {
   gap: 2rem;
   display: flex;
+  height: 100%;
   flex-direction: column;
   flex-basis: calc(50% - 1rem);
 }
+.graph_col_1 .card > div:nth-child(2) {
+  height: 40vh;
+}
+.data_col_2 .card > div:nth-child(2) {
+  height: calc(60vh - 6.75rem);
+}
 .data_col_2 {
   gap: 2rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   flex-basis: calc(50% - 2rem);
@@ -81,6 +95,13 @@ body {
   flex-direction: column;
   width: 100%;
   justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 1090px) {
+  .wrapper__steam-data {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 .corr-icon {
   border-style: none;
