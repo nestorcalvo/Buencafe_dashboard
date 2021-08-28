@@ -22,24 +22,27 @@ sidebar = html.Div(
         #     className = "sidebar-image"
         # ),
         html.Div(children = [
-            dbc.Nav(
-                [
-                    html.Div(
-                        children = [
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "fas fa-house-user"), "Home"
-                                ], 
-                                href="/apps/home", active="exact"
-                            )
-                        ],
-                        className = "nav-icon-link"
-                    )
-                ],
-                vertical=True,
-                pills=True,
-                className = "item__home",
-            ),
+            html.Div(children = [
+                dbc.Nav(
+                    [
+                        html.Div(
+                            children = [
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "fas fa-house-user"), "Home"
+                                    ], 
+                                    href="/apps/home", active="exact"
+                                )
+                            ],
+                            className = "nav-icon-link"
+                        )
+                    ],
+                    vertical=True,
+                    pills=True,
+                    
+                ),
+            ],className = "item__home")
+
         ], className = "sidebar__section-1"),
         html.Div(children = [
 
@@ -97,41 +100,51 @@ sidebar = html.Div(
         ], className = "sidebar__section-2"),
         html.Div(children = [
             html.Hr(className = "sidebar__division-bar"),
-            dbc.Nav(
-                [
-                    html.Div(
-                        children = [
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "fas fa-cogs"), "Settings"
-                                ], 
-                                href="/apps/settings", active="exact"
-                            )
-                        ],
-                        className = "nav-icon-link"
-                    ),
+            html.Div(children = [
 
-                    html.Div(
-                        children=[
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "far fa-address-card"),"About us"
-                                ], 
-                                href="/apps/aboutus", active="exact"
-                            ),
-                        ],
-                        className = "nav-icon-link"
-                    ),
-                ],
-                vertical=True,
-                pills=True,
-            ),
+                dbc.Nav(
+                    [
+                        html.Div(
+                            children = [
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "fas fa-cogs"), "Settings"
+                                    ], 
+                                    href="/apps/settings", active="exact"
+                                )
+                            ],
+                            className = "nav-icon-link"
+                        ),
+                    ],
+                    vertical=True,
+                    pills=True,),
+            ], className = "item__settings"),
+            html.Div(children  = [
+                dbc.Nav(
+                    [
+                        html.Div(
+                            children=[
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "far fa-address-card"),"About us"
+                                    ], 
+                                    href="/apps/aboutus", active="exact"
+                                ),
+                            ],
+                            className = "nav-icon-link"
+                        ),
+                    ],
+                    vertical=True,
+                    pills=True,
+                ),
+            ], className = "item__about-us"),
+                
             html.Div(children =[
                 html.Img(
                     src = "/assets/images/mintic_image.png",
                     className = "mintic-image"
-                )]
-            ),
+                )
+            ],className = "sidebar__img-mintic"),
         ], className = "sidebar__section-3"),
         
     ],
