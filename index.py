@@ -9,7 +9,6 @@ from app import server
 import functools
 from apps import water, settings, fuel, efficiency, home, about
 
-
 app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
 app.config.suppress_callback_exceptions = True
@@ -49,7 +48,7 @@ sidebar = html.Div(
                     children = [
                         dbc.NavLink(
                             [
-                                html.I(className = "fas fa-faucet"), "Water"
+                                html.I(className = "fas fa-faucet"), "Steam"
                             ], 
                             href="/apps/water", active="exact"
                         )
