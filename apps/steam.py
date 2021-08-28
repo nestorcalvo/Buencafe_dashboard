@@ -125,34 +125,53 @@ layout= [
             "Steam Analitycs",
             className = "content-title"
         ),
-        html.Div([
-            dbc.Row([
-                dbc.Col(
-                    dbc.Tabs([
-                        dbc.Tab(cardtab_1, label="Time series"),
-                        dbc.Tab(cardtab_2, label="Distribution"),
-                        ],
-                        id="card-tabs",
-                        card=True,
-                        active_tab="tab-1",
-                    ),
-                    width=9
+        html.Div(children=[
+
+            html.Div([
+                # dbc.Row([
+                #     dbc.Col(
+                #         dbc.Tabs([
+                #             dbc.Tab(cardtab_1, label="Time series"),
+                #             dbc.Tab(cardtab_2, label="Distribution"),
+                #             ],
+                #             id="card-tabs",
+                #             card=True,
+                #             active_tab="tab-1",
+                #         ),
+                #         width=9
+                #     ),
+                #     dbc.Col(
+                #         card_3, width=3                  
+                #     )
+                # ]),
+                dbc.Tabs([
+                    dbc.Tab(cardtab_1, label="Time series"),
+                    dbc.Tab(cardtab_2, label="Distribution"),
+                    ],
+                    id="card-tabs",
+                    card=True,
+                    active_tab="tab-1",
                 ),
-                dbc.Col(
-                    card_3, width=3                  
-                )
-            ]),
-            dbc.Row([
-                dbc.Col(
-                    card_4, width=3
-                ),
-                dbc.Col(
-                    card_5, width=9
-                )
-            ]),
-        ])
-    ]),
-        ]
+                card_3,
+
+            ], className = "graph_col_1"),
+            html.Div(children =[
+
+                # dbc.Row([
+                #     dbc.Col(
+                #         card_4, width=3
+                #     ),
+                #     dbc.Col(
+                #         card_5, width=9
+                #     )
+                # ]),
+                card_4,
+                card_5
+            ], className = "data_col_2")
+        ], className = "wrapper__steam-data")
+
+    ],className = "wrapper__steam"),
+]
 
 @app.callback(
     Output('graph-steam','figure'),
