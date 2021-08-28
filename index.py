@@ -122,20 +122,23 @@ sidebar = html.Div(
         ),
         
     ],
-    className = "sidebar",
+    className = "sidebar-wrapper",
 )
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    sidebar,
-    #html.Div(id='background-content', className = 'background-content', children = []),
-    html.Div(id='page-content', className = 'content', children = []),
-    # dls.Hash(
-    #     html.Div(id='page-content', className = 'content', children = []),
-    #     size = 160,
-    #     speed_multiplier = 0.8,
-    #     debounce = 1000
-    # )
+    
+    html.Div(className = 'wrapper', children = [
+        html.Div(children=[
+            html.Div(className = "top"),
+            html.Div(className = "middle"),
+            html.Div(className = "bottom"),
+            ],className = 'btn',id = 'btn_id'
+        ),
+        sidebar,
+
+        html.Div(id='page-content', className = 'content', children = []),
+    ])
 ], className = "top-layout")
 
 @app.callback(     
