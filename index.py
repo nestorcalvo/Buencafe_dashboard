@@ -7,7 +7,7 @@ import dash_loading_spinners as dls
 from app import app
 from app import server
 import functools
-from apps import water, settings, fuel, efficiency, home, about
+from apps import steam, settings, fuel, efficiency, home, about
 
 app.css.config.serve_locally = True
 app.scripts.config.serve_locally = True
@@ -61,7 +61,7 @@ sidebar = html.Div(
                                     [
                                         html.I(className = "fas fa-faucet"), "Steam"
                                     ], 
-                                    href="/apps/water", active="exact"
+                                    href="/apps/steam", active="exact"
                                 )
                             ],
                             className = "nav-icon-link"
@@ -177,8 +177,8 @@ def layout_selection(pathname):
     # for value in range(0,20000):
     #     print(value)
     #print(dash.callback_context.triggered)
-    if pathname == '/apps/water':
-        return water.layout
+    if pathname == '/apps/steam':
+        return steam.layout
     elif pathname == '/apps/home':
         return home.layout
     elif pathname == '/apps/fuel':
