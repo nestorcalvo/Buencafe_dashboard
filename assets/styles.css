@@ -108,7 +108,7 @@ body {
 
 .nav-pills {
   font-size: large;
-  /* text-shadow: 1px 3px 8px; */
+  text-shadow: 1px 3px 8px;
   width: 100%;
   padding-top: 1%;
   padding-bottom: 1%;
