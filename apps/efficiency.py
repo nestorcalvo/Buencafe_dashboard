@@ -32,8 +32,8 @@ graph_3 =  dbc.Card(
     style={"min-height":"20rem","max-height":"20rem"},
 )
 
-grouped_cards = html.Div(children=[dbc.Row(children=[dbc.Col(graph_1, style={'padding-top':'2rem'})]),dbc.Row([dbc.Col(graph_2, style={'padding-top':'2rem'}),
-        dbc.Col(graph_3, style={'padding-top':'2rem'})])])
+grouped_cards = html.Div(children=[dbc.Row(children=[dbc.Col(graph_1, style={'paddingTop':'2rem'})]),dbc.Row([dbc.Col(graph_2, style={'paddingTop':'2rem'}),
+        dbc.Col(graph_3, style={'paddingTop':'2rem'})])])
         
 layout = [
     html.Div(children = [

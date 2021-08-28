@@ -17,10 +17,10 @@ app.title = "Buencafé Dashboard"
 
 sidebar = html.Div(
     [
-        html.Img(
-            src = "/assets/images/buencafe_icon_1.png",
-            className = "sidebar-image"
-        ),
+        # html.Img(
+        #     src = "/assets/images/buencafe_icon_1.png",
+        #     className = "sidebar-image"
+        # ),
         html.Div([
             dbc.Nav(
                 [
@@ -40,7 +40,7 @@ sidebar = html.Div(
                 pills=True,
                 className = "item__home",
             ),
-        ], className = "sidebar__section-1")
+        ], className = "sidebar__section-1"),
         html.Div([
 
             html.Hr(className = "sidebar__division-bar"),
@@ -89,7 +89,7 @@ sidebar = html.Div(
                 vertical=True,
                 pills=True,
             ),
-        ], className = "sidebar__section-2")
+        ], className = "sidebar__section-2"),
         html.Div([
             html.Hr(className = "sidebar__division-bar"),
             dbc.Nav(
