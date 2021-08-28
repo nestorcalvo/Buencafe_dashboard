@@ -257,6 +257,7 @@ div[class*="item__"]:hover {
   border-bottom: 0;
 }
 
+
 /* Efficiency */
 .wrapper__efficiency {
   display: flex;
@@ -274,6 +275,38 @@ div[class*="item__"]:hover {
   align-items: center;
   height: 100%;
   gap: 2rem;
+}
+
+
+.cards-about {
+  width: 20vw;
+}
+.card-body > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-body > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img-about {
+  width: 50%;
+  height: auto;
+}
+.wrapper__about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.wrapper__about-us-data {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 /* .corr-icon-container {
