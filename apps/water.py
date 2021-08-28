@@ -131,7 +131,11 @@ layout= [
                     dbc.Tabs([
                         dbc.Tab(cardtab_1, label="Time series"),
                         dbc.Tab(cardtab_2, label="Distribution"),
-                    ]),
+                        ],
+                        id="card-tabs",
+                        card=True,
+                        active_tab="tab-1",
+                    ),
                     width=9
                 ),
                 dbc.Col(
@@ -148,36 +152,27 @@ layout= [
             ]),
         ])
     ]),
-        dcc.Store(id='intermediate-value')
         ]
 
 @app.callback(
-    Output('intermediate-value','data'),
-    [Input('frequency-radioitems', 'value')]
+    Output('graph-steam','figure'),
+    [Input('my-date-picker-range', 'start_date'),
+    Input('my-date-picker-range', 'end_date'),
+    Input('frequency-radioitems', 'value')]
 )
 
-def update_frequency(value):
-    if value == "data_daily":
+def update_figure(start_date, end_date, value_radio):
+    if value_radio == "data_daily":
         data = pd.read_csv("data/data_interpolate_daily.csv", parse_dates=["Time"])
         data.set_index(["Time"], inplace=True)
-    elif value == "data_hourly":
+    elif value_radio == "data_hourly":
         data = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
         data.set_index(["Time"], inplace=True)
-    return data.to_json(date_format='iso')
 
-@app.callback(
-    Output('graph-steam','figure'),
-    [Input('intermediate-value', 'data'),
-    Input('my-date-picker-range', 'start_date'),
-    Input('my-date-picker-range', 'end_date')]
-)
-
-def update_figure(data, start_date, end_date):
-    df = pd.read_json(data)
     fig = go.Figure()
     fig.add_trace(go.Scatter(
-        x = df.loc[start_date: end_date].index,
-        y = df.loc[start_date: end_date]["Steam Flow Rate"],
+        x = data.loc[start_date: end_date].index,
+        y = data.loc[start_date: end_date]["Steam Flow Rate"],
         mode = "lines",
         name = "Steam"
     ))
