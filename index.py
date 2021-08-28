@@ -16,12 +16,12 @@ app.config.suppress_callback_exceptions = True
 app.title = "Buencafé Dashboard"
 
 sidebar = html.Div(
-    [
+    children = [
         # html.Img(
         #     src = "/assets/images/buencafe_icon_1.png",
         #     className = "sidebar-image"
         # ),
-        html.Div([
+        html.Div(children = [
             dbc.Nav(
                 [
                     html.Div(
@@ -41,7 +41,7 @@ sidebar = html.Div(
                 className = "item__home",
             ),
         ], className = "sidebar__section-1"),
-        html.Div([
+        html.Div(children = [
 
             html.Hr(className = "sidebar__division-bar"),
             
@@ -50,47 +50,52 @@ sidebar = html.Div(
             # ]),
             dbc.Nav(
                 [
-                    html.Div(
-                        children = [
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "fas fa-faucet"), "Steam"
-                                ], 
-                                href="/apps/water", active="exact"
-                            )
-                        ],
-                        className = "nav-icon-link item__steam"
-                    ),
+                    html.Div([
+                        html.Div(
+                            children = [
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "fas fa-faucet"), "Steam"
+                                    ], 
+                                    href="/apps/water", active="exact"
+                                )
+                            ],
+                            className = "nav-icon-link"
+                        ),
+                    ], className = "item__steam"),
+                    html.Div(children =[
 
-                    html.Div(
-                        children=[
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "fas fa-gas-pump"),"Fuel"
-                                ], 
-                                href="/apps/fuel", active="exact"
-                            ),
-                        ],
-                        className = "nav-icon-link item__fuel"
-                    ),
-
-                    html.Div(
-                        children = [
-                            dbc.NavLink(
-                                [
-                                    html.I(className = "fas fa-percentage"), "Efficiency"
-                                ], 
-                                href="/apps/efficiency", active="exact"
-                            )
-                        ],
-                        className = "nav-icon-link item__eficiency"
-                    )
+                        html.Div(
+                            children=[
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "fas fa-gas-pump"),"Fuel"
+                                    ], 
+                                    href="/apps/fuel", active="exact"
+                                ),
+                            ],
+                            className = "nav-icon-link"
+                        ),
+                    ],className = "item__fuel"),
+                    html.Div([
+                        html.Div(
+                            children = [
+                                dbc.NavLink(
+                                    [
+                                        html.I(className = "fas fa-percentage"), "Efficiency"
+                                    ], 
+                                    href="/apps/efficiency", active="exact"
+                                )
+                            ],
+                            className = "nav-icon-link"
+                        )
+                    ], className = "item__eficiency"),
                 ],
                 vertical=True,
                 pills=True,
             ),
         ], className = "sidebar__section-2"),
-        html.Div([
+        html.Div(children = [
             html.Hr(className = "sidebar__division-bar"),
             dbc.Nav(
                 [
@@ -121,11 +126,11 @@ sidebar = html.Div(
                 vertical=True,
                 pills=True,
             ),
-            html.Div(
+            html.Div(children =[
                 html.Img(
                     src = "/assets/images/mintic_image.png",
                     className = "mintic-image"
-                )
+                )]
             ),
         ], className = "sidebar__section-3"),
         

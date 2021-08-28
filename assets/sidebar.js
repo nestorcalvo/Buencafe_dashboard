@@ -27,7 +27,7 @@ window.onload = () => {
 				sidebarBox.classList.remove('active');
 			}
 		})
-	},1000)
+	},2000)
 	
 }
 // 	}, 100
