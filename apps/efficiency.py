@@ -15,21 +15,21 @@ graph_1 =  dbc.Card(
     [
         dcc.Graph(figure=fig),
     ],
-    style={"min-height":"20rem","max-height":"20rem"},
+    style={"minHeight":"20rem","maxHeight":"20rem"},
 )
 
 graph_2 =  dbc.Card(
     [
         dcc.Graph(figure=fig),
     ],
-    style={"min-height":"20rem","max-height":"20rem"},
+    style={"minHeight":"20rem","maxHeight":"20rem"},
 )
 
 graph_3 =  dbc.Card(
     [
         dcc.Graph(figure=fig),
     ],
-    style={"min-height":"20rem","max-height":"20rem"},
+    style={"minHeight":"20rem","maxHeight":"20rem"},
 )
 
 grouped_cards = html.Div(children=[dbc.Row(children=[dbc.Col(graph_1, style={'paddingTop':'2rem'})]),dbc.Row([dbc.Col(graph_2, style={'paddingTop':'2rem'}),
