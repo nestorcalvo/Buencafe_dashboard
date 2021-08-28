@@ -51,7 +51,13 @@ List of things you need to use the software and how to install them.
   ```sh
   pip install -r requirements.txt
   ```
+### Run the web application
 
+The main file is index.py, to run the application in the localhost.
+* run command
+  ```sh
+  python index.py
+  ```
 <!-- CONTACT -->
 ## Contact
 
