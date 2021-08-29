@@ -26,10 +26,11 @@ app.layout = html.Div([
                 <div>
                 <div>
                     <ul>
-                    <li><a href="/apps/home">Home</a></li>
-                    <li><a href="/apps/steam">Steam</a></li>
-                    <li><a href="/apps/fuel">Fuel</a></li>
-                    <li><a href="/apps/efficiency">Efficiency</a></li>
+                    <li><i class="fas fa-house-user"></i><a href="/apps/home">Home</a></li>
+                    <li><i class="fas fa-faucet"></i><a href="/apps/steam">Steam</a></li>
+                    <li><i class="fas fa-gas-pump"></i><a href="/apps/fuel">Fuel</a></li>
+                    <li><i class="fas fa-percentage"></i><a href="/apps/efficiency">Efficiency</a></li>
+                    <li><i class="far fa-address-card"></i><a href="/apps/aboutus">About Us</a></li>
                     </ul>
                 </div>
                 </div>
