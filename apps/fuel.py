@@ -17,7 +17,7 @@ features = ["Screw Speed", "Steam Flow Rate", "Steam Pressure", "Oven-Home Tempe
 
 cardtab_11 = dbc.Card([
         dls.Hash(
-            dcc.Graph(id="graph-fuel"),
+            dcc.Graph(id="graph-fuel", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200
@@ -26,7 +26,7 @@ cardtab_11 = dbc.Card([
 
 cardtab_21 = dbc.Card([
         dls.Hash(
-            dcc.Graph(id="graph-distribution2"),
+            dcc.Graph(id="graph-distribution2", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200
@@ -96,7 +96,7 @@ card_41 = dbc.Card([
 
 card_51 = dbc.Card([
         dls.Hash(
-            dcc.Graph(id="graph-comparison2"),
+            dcc.Graph(id="graph-comparison2", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200

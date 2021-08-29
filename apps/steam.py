@@ -21,7 +21,7 @@ cardtab_1 = dbc.Card([
             className="month-container"
         ),
         dls.Hash(
-            dcc.Graph(id="graph-steam"),
+            dcc.Graph(id="graph-steam", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200
@@ -34,7 +34,7 @@ cardtab_2 = dbc.Card([
             className="month-container"
         ),
         dls.Hash(
-            dcc.Graph(id="graph-distribution"),
+            dcc.Graph(id="graph-distribution", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200
@@ -108,7 +108,7 @@ card_5 = dbc.Card([
             className="month-container"
         ),
         dls.Hash(
-            dcc.Graph(id="graph-comparison"),
+            dcc.Graph(id="graph-comparison", className = "graph-card"),
             size = 160,
             speed_multiplier = 0.8,
             debounce = 200

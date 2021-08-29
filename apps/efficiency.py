@@ -16,7 +16,7 @@ fig = go.Figure()
 
 graph_1 =  dbc.Card(
     [
-        dcc.Graph(id='graph-efficiency'),
+        dcc.Graph(id='graph-efficiency', className = "graph-card"),
     ],
 )
 

@@ -39,7 +39,7 @@ app.layout = html.Div([
         '''),
 
         html.Div(className = 'wrapper', children = [
-            html.Div(id='page-content', className = 'content', children = []),
+            html.Div(id='page-content', className = 'content-class', children = []),
         ])
     ])
 ], className = "top-layout")
