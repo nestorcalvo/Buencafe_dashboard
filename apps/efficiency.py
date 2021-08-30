@@ -8,8 +8,19 @@ import pandas as pd
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 
+
 #df = database.get_csv("airports.csv")
 #fig = px.histogram(df, x="Code", height=340)
+import numpy as np
+from joblib import dump, load
+
+model = load('./model/randomforest1.joblib')
+
+X_test = np.array([32.78, 873.1317110666666, 26944.993760166668, 17.038507456333335, 753.9847037783333,
+ 103.151764405, 12.6772637935, -8.071795385133333, 104.95246840333331, 252.17223876,
+ 186.72663326, 76.19234134666667, 3016.064416257234, 842.3078503490352])
+
+print(model.predict(X_test.reshape(1, -1))[0])
 
 fig = go.Figure()
 
@@ -95,7 +106,7 @@ layout = [
             className = "corr-icon"
         ),
         html.H2(
-            "Efficiency Analitycs",
+            "Efficiency Analytics",
             className = "content-title"
         ),
         grouped_cards],

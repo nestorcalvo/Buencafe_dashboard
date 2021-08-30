@@ -110,7 +110,7 @@ layout= [
             className = "corr-icon"
         ),
         html.H2(
-            "Fuel Analitycs",
+            "Fuel Analytics",
             className = "content-title"
         ),
         html.Div(children=[
@@ -142,7 +142,7 @@ layout= [
 #             className = "corr-icon"
 #         ),
 #         html.H2(
-#             "Fuel Analitycs",
+#             "Fuel Analytics",
 #             className = "content-title"
 #         ),
 #         html.Div([

@@ -122,7 +122,7 @@ layout= [
             className = "corr-icon"
         ),
         html.H2(
-            "Steam Analitycs",
+            "Steam Analytics",
             className = "content-title"
         ),
         html.Div(children=[
