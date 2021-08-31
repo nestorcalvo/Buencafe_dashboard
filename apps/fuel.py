@@ -113,36 +113,68 @@ layout= [
             "Fuel Analitycs",
             className = "content-title"
         ),
-        html.Div([
-            dbc.Row([
-                dbc.Col(
-                    dbc.Tabs([
-                        dbc.Tab(cardtab_11, label="Time series"),
-                        dbc.Tab(cardtab_21, label="Distribution"),
-                        ],
-                        id="card-tabs2",
-                        card=True,
-                        active_tab="tab-0",
-                    ),
-                    width=9
+        html.Div(children=[
+
+            html.Div([
+                dbc.Tabs([
+                    dbc.Tab(cardtab_11, label="Time series"),
+                    dbc.Tab(cardtab_21, label="Distribution"),
+                    ],
+                    id="card-tabs2",
+                    card=True,
+                    active_tab="tab-1",
                 ),
-                dbc.Col(
-                    card_31, width=3                  
-                )
-            ]),
-            dbc.Row([
-                dbc.Col(
-                    card_41, width=3
-                ),
-                dbc.Col(
-                    card_51, width=9
-                )
-            ]),
-        ])
-    ],
-    className = "corr-icon-container"
-    )
-        ]
+                card_31,
+
+            ], className = "graph_col_1"),
+            html.Div(children =[
+                card_41,
+                card_51
+            ], className = "data_col_2")
+        ], className = "wrapper__steam-data wrapper__fuel-data")
+
+    ],className = "wrapper__steam wrapper__fuel"),
+]
+# layout= [
+#     html.Div([
+#         html.Img(
+#             src = "/assets/images/C1_icon_1.png",
+#             className = "corr-icon"
+#         ),
+#         html.H2(
+#             "Fuel Analitycs",
+#             className = "content-title"
+#         ),
+#         html.Div([
+#             dbc.Row([
+#                 dbc.Col(
+#                     dbc.Tabs([
+#                         dbc.Tab(cardtab_11, label="Time series"),
+#                         dbc.Tab(cardtab_21, label="Distribution"),
+#                         ],
+#                         id="card-tabs2",
+#                         card=True,
+#                         active_tab="tab-1",
+#                     ),
+#                     width=9
+#                 ),
+#                 dbc.Col(
+#                     card_31, width=3                  
+#                 )
+#             ]),
+#             dbc.Row([
+#                 dbc.Col(
+#                     card_41, width=3
+#                 ),
+#                 dbc.Col(
+#                     card_51, width=9
+#                 )
+#             ]),
+#         ])
+#     ],
+#     className = "corr-icon-container"
+#     )
+#         ]
 
 @app.callback(
     Output('graph-fuel','figure'),
