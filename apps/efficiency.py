@@ -7,23 +7,112 @@ from app import app#, database
 import pandas as pd
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
-
+import dash_dangerously_set_inner_html
 
 #df = database.get_csv("airports.csv")
 #fig = px.histogram(df, x="Code", height=340)
 import numpy as np
 from joblib import dump, load
 
-model = load('./model/randomforest1.joblib')
 
-X_test = np.array([32.78, 873.1317110666666, 26944.993760166668, 17.038507456333335, 753.9847037783333,
- 103.151764405, 12.6772637935, -8.071795385133333, 104.95246840333331, 252.17223876,
- 186.72663326, 76.19234134666667, 3016.064416257234, 842.3078503490352])
-
-print(model.predict(X_test.reshape(1, -1))[0])
 
 fig = go.Figure()
 
+inputs = html.Div(className = "left-input", children = [
+    html.Label(children = ["Input 1",
+        html.Div(className = "wrapper-input", children = [
+            dcc.Input(id="input2", type="text", placeholder="", debounce=True),
+            html.Div(className = "questionMark", children = [
+                html.Div("?", className = "questionIcon"),
+                html.Div(className = "questionMarkInfo", children =[
+                    html.H4("Lorem, ipsum", className = "questionTitle"),
+                    html.P("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, quae", className = "questionDescription")
+                ])
+            ])
+        ]),
+    ])
+])
+html_pure = ('''
+    <div class="wrapperPredictions">
+      <div class="pagePredictions">
+        <h2 class="pagePredictionsTitle">Title</h2>
+        <div class="predictionsMainText">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quibusdam suscipit totam laboriosam dignissimos libero, amet nesciunt voluptatem obcaecati odit officiis facilis ipsum magni
+            tenetur unde harum commodi, deserunt eaque minima odio ex itaque sed iste. Expedita reiciendis sapiente, vel quidem ad sed neque illum quaerat atque cupiditate culpa dolores harum pariatur
+            optio ab doloremque commodi eum minima qui eveniet quod veritatis! Doloremque inventore iure minima eos velit totam molestiae.
+          </p>
+        </div>
+        <div class="predictionsSecondRow">
+          <div class="predictionsLeftContainer">
+            <div class="left-input">
+              <label for=""
+                >Input1
+                <div class="wrapper-input">
+                  <input type="text" />
+                  <div class="questionMark">
+                    <div class="questionIcon">?</div>
+                    <div class="questionMarkInfo">
+                      <h4 class="questionTitle">Lorem, ipsum.</h4>
+                      <p class="questionDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, quae.</p>
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="left-input">
+              <label for=""
+                >Input1
+                <div class="wrapper-input">
+                  <input type="text" />
+                  <div class="questionMark">
+                    <div class="questionIcon">?</div>
+                    <div class="questionMarkInfo">
+                      <h4 class="questionTitle">Lorem, ipsum.</h4>
+                      <p class="questionDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, quae.</p>
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="predictionsRightContainer">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores at magnam aperiam cumque numquam molestiae laudantium commodi perferendis fugit tempora.</p>
+            <div class="rangeBar">
+              <span>Numero</span>
+              <div id="rangeBarFill"></div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+''')
+prediction_zone = html.Div(className = "wrapperPredictions", children =[
+    html.Div(className = "pagePredictions", children = [
+        html.H2('Title', className = "pagePredictionsTitle"),
+        html.Div(className = "predictionsMainText", children = [
+            html.P("Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quibusdam suscipit totam laboriosam dignissimos libero, amet nesciunt voluptatem obcaecati odit officiis facilis ipsum magni")            
+        ]),
+        html.Div(className = "predictionsSecondRow", children = [
+            html.Div(className = "predictionsLeftContainer", children = [
+                inputs,
+                inputs
+            ]),
+            html.Div(className = "predictionsRightContainer", children = [
+                html.P("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores at magnam aperiam cumque numquam molestiae laudantium commodi perferendis fugit tempora."),
+                html.Div(className = "rangeBar", children = [
+                    html.Span(children = ["0"], id = "spanNumber"),
+                    html.Div(id = "rangeBarFill")
+                ]),
+                html.Div(children = [
+                    html.Button("Predict", id = 'PredictButton', className = "theButton", n_clicks = 0),
+                ])
+            ])
+        ])
+    ])
+])
+# <div><button class="theButton" id="PredictButton">Predict</button></div>
 
 graph_1 =  dbc.Card(
     [
@@ -68,7 +157,8 @@ sliders_1 =  dbc.Card(
     [   html.H6("Steam range"),
         slider_steam,
         html.P(id='range-steam'),
-        html.Hr(style={'border-color':'black'}),
+        # html.Hr(style={'border-color':'black'}),
+        html.Hr(),
         html.H6("Gas range"),
         slider_gas,
         html.P(id='range-gas'),
@@ -80,7 +170,8 @@ sliders_2 = dbc.Card(
         html.H6("Borra range"),
         slider_borra,
         html.P(id='range-borra'),
-        html.Hr(style={'border-color':'black'}),
+        # html.Hr(style={'border-color':'black'}),
+        html.Hr(),
         html.H6("Cisco range"),
         slider_cisco,
         html.P(id='range-cisco')
@@ -105,6 +196,8 @@ layout = [
             src = "/assets/images/C1_icon_1.png",
             className = "corr-icon"
         ),
+        # dash_dangerously_set_inner_html.DangerouslySetInnerHTML(html_pure),
+        prediction_zone,
         html.H2(
             "Efficiency Analytics",
             className = "content-title"
@@ -113,6 +206,24 @@ layout = [
         className = "wrapper__efficiency"
     ),
 ]
+
+@app.callback(Output('spanNumber', 'children'),[Input('PredictButton','n_clicks')])
+def predict_efficiency(n_clicks):
+    print(n_clicks)
+    if (n_clicks>0):
+        
+        model = load('./model/randomforest1.joblib')
+
+        X_test = np.array([32.78, 873.1317110666666, 26944.993760166668, 17.038507456333335, 753.9847037783333,
+        103.151764405, 12.6772637935, -8.071795385133333, 104.95246840333331, 252.17223876,
+        186.72663326, 76.19234134666667, 3016.064416257234, 842.3078503490352])
+
+        print(model.predict(X_test.reshape(1, -1))[0])
+        return [str(round(model.predict(X_test.reshape(1, -1))[0]*100, 2))]
+    else:
+        return [str(0)]
+    
+    
 
 @app.callback(
     [Output('graph-efficiency','figure'),
