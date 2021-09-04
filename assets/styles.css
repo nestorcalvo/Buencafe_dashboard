@@ -412,8 +412,8 @@ h2 {
 .predictionsMainText {
   display: flex;
   justify-content: center;
-  width: calc(60% - 1rem);
-  padding: 2rem;
+  width: 100%;
+  padding: 3rem;
   align-items: center;
 }
 .predictionsMainText > p {
@@ -589,9 +589,7 @@ div .inputs-cards {
   .data_col_2 {
     width: 80vw;
   }
-  .predictionsMainText {
-    width: 100%;
-  }
+
   .carousel-home {
     align-items: center;
     display: flex;
@@ -606,6 +604,9 @@ div .inputs-cards {
     flex-direction: column;
     flex-wrap: wrap;
     padding: 2rem;
+  }
+  .predictionsMainText {
+    width: 100%;
   }
   .wrapper__efficiency-data :nth-child(1) {
     order: 2;
