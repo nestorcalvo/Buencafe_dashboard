@@ -39,9 +39,13 @@ Buencafé is one of the main worldwide providers of soluble coffee of outstandin
 It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
 
 ## Notebooks
+Los notebooks se encuentran con nombres que describan la funcion que cumplen y se dividieron las partes del proceso mas importantes en diferentes notebooks.
 <ul>
-  <li><a href="https://colab.research.google.com/drive/1p1RqSQHJXcEduxTb6EHxYFxMYU5eRI9j">Notebook 1</a></li>
-  <li><a href="https://colab.research.google.com/drive/1lnE8Mjt6tbllGJz5PbYH6CSwNPz9Q7jA">Notebook 2</a></li>
+  <li>preprocesing.ipynb: Notebook creado para realizar la limpieza de datos, se eliminan datos atipicos y se realiza graficas en diferentes rangos de tiempo</li>
+  <li>impute_data.ipynb: Notebook creado para solucionar los multiples problemas que ocacionaban los datos atipicos, se aplicaron tecnicas para poder corregirlos</li>
+  <li>impute_data.ipynb: Notebook creado para solucionar los multiples problemas que ocacionaban los datos atipicos, se aplicaron tecnicas para poder corregirlos</li>
+  <li>calculate_variables.ipynb: Notebook usado para realizar el proceso del calculo de la variable principal del proceso que es la eficiencia</li>
+  <li>Model.ipynb: Notebook donde se crearon y se evaluaron los multiples modelos estadisticos para la solución del problema/li>
 </ul>
 
 <!-- GETTING STARTED -->
