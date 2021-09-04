@@ -67,10 +67,15 @@ The main file is index.py, to run the application in the localhost.
 ## Contact
 
 Nestor Calvo - nestorcalvoa@gmail.com
+
 Luis Fernando Rico - luisf.ricoo@gmail.com
+
 Ana María Gómez - anamago3@gmail.com
+
 Maryelin Del Valle Pérez - perez.c.maryelin@gmail.com
+
 Juan Pablo Suárez - juan.suarezr@udea.edu.co
+
 Jorge Hernán López - jhlopezm2@gmail.com
 
 
