@@ -45,12 +45,12 @@ layout = [
             # "header": "CHALLENGE: To predict caldera's efficiency",
             #"caption": "With Caption only",
         },
-        {
-            "key": "4",
-            "src": "/assets/images/For Home .jpg",
-            # "header": "CHALLENGE: To predict caldera's efficiency",
-            #"caption": "With Caption only",
-        },
+        # {
+        #     "key": "4",
+        #     "src": "/assets/images/For Home .jpg",
+        #     # "header": "CHALLENGE: To predict caldera's efficiency",
+        #     #"caption": "With Caption only",
+        # },
 
     ],
     controls=True,
