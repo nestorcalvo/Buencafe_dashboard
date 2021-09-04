@@ -10,15 +10,6 @@
   <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/">
     <img src="assets/images/Home_page_1.png" alt="Logo" width="250" height="100">
   </a>
-  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/">
-    <img src="assets/images/Home_page_2.png" alt="Logo" width="250" height="100">
-  </a>
-  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/steam">
-    <img src="images/steam_capture.PNG"alt="Logo" width="250" height="100">
-  </a>
-  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/efficiency">
-    <img src="images/efficiency_capture.PNG" alt="Logo" width="250" height="100">
-  </a>
 
 
   <h3 align="center">Buencafé Dashboard</h3>
@@ -39,6 +30,10 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home)
+[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/)
+[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/steam)
+[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/efficiency)
+
 
 Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
 It produces lyophilized coffee, roasted coffee, coffee extract and coffee oil.
@@ -85,4 +80,7 @@ Project Link: [https://github.com/nestorcalvo/Buencafe_dashboard](https://github
 
 [license-shield]: https://img.shields.io/github/license/nestorcalvo/Buencafe_dashboard
 [license-url]: https://github.com/nestorcalvo/Buencafe_dashboard/blob/master/LICENSE.txt
-[product-screenshot]: images/Mockup-1Page_1.png
+[product-screenshot1]: assets/images/Home_page_1.png
+[product-screenshot2]: assets/images/Home_page_2.png
+[product-screenshot3]: images/steam_capture.PNG
+[product-screenshot4]: images/efficiency_capture.PNG
