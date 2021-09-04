@@ -1,7 +1,8 @@
 /* CORE STYLES */
 :root {
-  --primary-color: rgba(13, 110, 139, 0.2);
+  --primary-color: rgba(13, 110, 139, 0.8);
   --overlay-color: rgba(24, 39, 51, 0.95);
+  /* --primary-color: rgba(25, 84, 123, 0.8); */
   /* --overlay-color: rgba(100, 16, 11, 0.85); */
   --menu-speed: 0.75s;
 }
@@ -16,17 +17,9 @@ html {
 body {
   margin: 0px;
   font-family: "Roboto", sans-serif;
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2c3e50,
-    #bdc3c7
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2c3e50,
-    #bdc3c7
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: #ffd89b;
+  background: -webkit-linear-gradient(to top, rgb(25, 84, 123), #ffd89b);
+  background: linear-gradient(to top, #19547b, #ffd89b); */
 
   /* background: hsla(212, 35%, 58%, 1);
 
@@ -52,6 +45,7 @@ body {
 }
 label {
   font-family: "Roboto", sans-serif;
+  font-size: large;
 }
 h2 {
   font-size: 3rem;
@@ -103,7 +97,14 @@ h2 {
   flex-direction: row;
   z-index: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  background: #bdc3c7;
+  /* background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);
+  background: linear-gradient(to top, #2c3e50, #bdc3c7); */
+
+  background: -webkit-linear-gradient(to top, #333d29, #bdc3c7);
+  background: linear-gradient(to top, #333d29, #bdc3c7);
+  /* height: 100%; */
 }
 .wrapper-top {
   display: flex;
@@ -121,6 +122,8 @@ h2 {
   display: flex;
   align-content: end;
   align-self: end;
+  height: auto;
+  width: 10%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -144,15 +147,17 @@ h2 {
 .carousel-control-prev-icon {
   width: 45px;
   height: 45px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 10;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%50c603d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-next-icon {
   width: 45px;
   height: 45px;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+  /* position: fixed; */
+  z-index: 10;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%60c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
 
 .carousel-indicators .active {
@@ -187,6 +192,7 @@ h2 {
   align-items: center;
   height: 100%;
   gap: 2rem;
+  padding: 2rem;
 }
 
 .cards-about {
@@ -202,9 +208,13 @@ h2 {
   flex-direction: column;
   align-items: center;
 }
+.wrapper-img-about {
+  width: 45%;
+  height: 150px;
+}
 .img-about {
-  width: 50%;
-  height: auto;
+  width: 100%;
+  height: 100%;
 }
 .wrapper__about-us {
   display: flex;
@@ -389,6 +399,21 @@ h2 {
   flex-direction: column;
   justify-content: center;
 }
+.predictionsMainText {
+  display: flex;
+  justify-content: center;
+  width: calc(60% - 1rem);
+  padding: 2rem;
+  align-items: center;
+}
+.predictionsMainText > p {
+  font-size: large;
+  color: black;
+}
+.predictionsRightContainer > p {
+  font-size: medium;
+  color: black;
+}
 .menu-wrap .menu > div > div > ul > li {
   display: flex;
   gap: 2%;
@@ -426,9 +451,9 @@ h2 {
 }
 .left-input input {
   height: 1rem;
-  padding: 0.7rem;
-  margin-top: 10px;
-  border: 1px solid blue;
+  /* padding: 0.7rem; */
+  /* margin-top: 10px; */
+  /* border: 1px solid blue; */
 }
 .predictionsSecondRow {
   display: flex;
@@ -438,17 +463,37 @@ h2 {
 .wrapper-input {
   display: flex;
   gap: 1rem;
+  padding: 2%;
 }
-
+div .inputs-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.wrapper-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .predictionsLeftContainer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-basis: calc(60% - 1rem);
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start; /* Needed to remove space between rows */
 }
+.card-body_inputs {
+  padding: 0;
+}
 .left-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   min-width: 220px;
 }
@@ -456,7 +501,7 @@ h2 {
   display: none;
 }
 .questionIcon {
-  margin-top: 150%;
+  /* margin-top: 150%; */
 }
 .questionMark:hover .questionMarkInfo {
   position: absolute;
@@ -464,14 +509,23 @@ h2 {
   flex-direction: column;
   align-items: center;
   z-index: 2;
+  min-width: 100px;
+  width: 70%;
   padding: 0 1rem;
   background: white;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 /**PredictionsRight  Starts*/
 .predictionsRightContainer {
   display: flex;
   flex-basis: 40%;
+  flex-direction: column;
+}
+#spanNumber {
+  font-size: larger;
+}
+.wrapper_theButton {
+  display: flex;
   flex-direction: column;
 }
 .rangeBar {
@@ -493,8 +547,13 @@ h2 {
   height: 100%;
   border-radius: 6px;
 }
-
-@media only screen and (max-width: 500px) {
+.efficiency-graph {
+  width: 100%;
+}
+.efficiency-slides {
+  width: 80%;
+}
+@media only screen and (max-width: 900px) {
   .predictionsSecondRow {
     display: flex;
     flex-direction: column;
@@ -505,5 +564,25 @@ h2 {
     left: 50%;
     z-index: 2;
     transform: translate(-50%, -50%);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .wrapper__efficiency-data {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+  .wrapper__efficiency-data :nth-child(1) {
+    order: 2;
+  }
+  .wrapper__efficiency-data :nth-child(2) {
+    order: 1;
+  }
+  .wrapper__efficiency-data :nth-child(3) {
+    order: 3;
+  }
+  .wrapper__efficiency-data > .row {
+    width: 70%;
   }
 }

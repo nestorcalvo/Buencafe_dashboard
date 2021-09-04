@@ -24,23 +24,36 @@ layout = [
     items=[
         {
             "key": "1",
+            "src": "/assets/images/Final presentation DS4A.png",
+            # "header": "CHALLENGE: To predict caldera's efficiency",
+            #"caption": "With Caption only",
+        },
+        {
+            "key": "2",
             "src": "/assets/images/Buencafe_entrada.jpeg",
             "header": "One of the world’s leading premium soluble coffee suppliers",
             #"caption": "One of the world’s leading premium soluble coffee suppliers",
         },
-        {
-            "key": "2",
-            "src": "/assets/images/cafetal.jpeg",
-            "header": "Dedicated to providing high-quality coffee, underpinned by an aim to deliver sustainable social impact in the surrounding communities",
-        },
+        # {
+        #     "key": "3",
+        #     "src": "/assets/images/cafetal.jpeg",
+        #     # "header": "Dedicated to providing high-quality coffee, underpinned by an aim to deliver sustainable social impact in the surrounding communities",
+        # },
         {
             "key": "3",
             "src": "/assets/images/Caldera.jpeg",
-            "header": "CHALLENGE: To predict caldera's efficiency",
+            # "header": "CHALLENGE: To predict caldera's efficiency",
             #"caption": "With Caption only",
         },
+        {
+            "key": "4",
+            "src": "/assets/images/For Home .jpg",
+            # "header": "CHALLENGE: To predict caldera's efficiency",
+            #"caption": "With Caption only",
+        },
+
     ],
-    controls=False,
+    controls=True,
     indicators=True,
     
     className="carousel-home",

@@ -38,9 +38,9 @@ app.layout = html.Div([
             </div>
         '''),
 
-        html.Div(className = 'wrapper', children = [
-            html.Div(id='page-content', className = 'content-class', children = []),
-        ])
+        
+        html.Div(id='page-content', className = 'content-class', children = []),
+        
     ])
 ], className = "top-layout")
 
@@ -67,5 +67,5 @@ def layout_selection(pathname):
         return html.Div()
 
 if __name__ == '__main__':
-    app.run_server(debug=True, dev_tools_hot_reload=True)
+    app.run_server(debug=True,dev_tools_hot_reload=True)
     #app.run_server(debug=True, host ='0.0.0.0', port = 8050, dev_tools_hot_reload=False)

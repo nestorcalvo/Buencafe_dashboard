@@ -9,7 +9,7 @@ from app import app
 
 graph_1 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Foto.png", className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/Foto.png", className='img-about'), className='wrapper-img-about'),
                     
                     html.Div(children=[
                         html.H3("Project Leader"),
@@ -27,7 +27,7 @@ graph_1 =  dbc.Card(children=[
 
 graph_2 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Foto.png", className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/ana_photo.jpeg", className='img-about'), className='wrapper-img-about'),
                     html.Div(children=[
                         html.H3("Data Analyst"),
                         html.H4("Ana María Gómez"),
@@ -46,7 +46,7 @@ graph_2 =  dbc.Card(children=[
 
 graph_3 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Nestor_calvo_foto.jpeg", className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/Nestor_calvo_foto.jpeg", className='img-about'), className='wrapper-img-about'),
                     html.Div(children=[
                         html.H3("Full-stack Developer"),
                         html.H4("Néstor Rafael Calvo"),
@@ -64,7 +64,7 @@ graph_3 =  dbc.Card(children=[
 
 graph_4 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Foto.png", className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/maryelin_photo.jpeg", className='img-about'), className='wrapper-img-about'),
                     html.Div(children=[
                         html.H3("Data Analyst"),
                         html.H4("Maryelin Del Valle Pérez"),
@@ -82,7 +82,7 @@ graph_4 =  dbc.Card(children=[
 
 graph_5 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Foto_Juan_Pablo.png", style={'height':'22%', 'width':'30%'}, className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/Foto_Juan_Pablo.png", className='img-about'), className='wrapper-img-about'),
                     html.Div(children=[
                         html.H3("Engineering and Front-end Assistant"),
                         html.H4("Juan Pablo Suárez"),
@@ -100,7 +100,7 @@ graph_5 =  dbc.Card(children=[
 
 graph_6 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Jorge_Lopez.jpeg", className='img-about')),
+                    html.Div(html.Img(src="/../assets/images/Jorge_Lopez.jpeg", className = "img-about"), className='wrapper-img-about'),
                     html.Div(children=[
                         html.H3("General Assistant"),
                         html.H4("Jorge Hernán López"),
@@ -128,10 +128,21 @@ grouped_cards = html.Div(children=[
         
 layout = [
     html.Div(children = [
+        # html.Div(children = [
+
+        #     # html.Img(
+        #     #     src = "/assets/images/C1_icon_1.png",
+        #     #     className = "corr-icon"
+        #     # ),
+        # ], className = "icons-wrapper"),
         html.Img(
-            src = "/assets/images/C1_icon_1.png",
+            src = "/assets/images/Buencafe-logo.png",
             className = "corr-icon"
         ),
+        # html.Img(
+        #     src = "/assets/images/C1_icon_1.png",
+        #     className = "corr-icon"
+        # ),
         html.H2(
             "About Us",
             className = "content-title"
