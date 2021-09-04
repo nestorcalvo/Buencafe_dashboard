@@ -50,8 +50,8 @@ if (window.location.pathname == "/apps/efficiency") {
     }
   }
   setInterval(() => {
-    console.log(spanValue)
-    console.log(default_value)
+    // console.log(spanValue)
+    // console.log(default_value)
     if (parseFloat(spanValue) != default_value) {
     
       rangeBar(parseFloat(spanValue))

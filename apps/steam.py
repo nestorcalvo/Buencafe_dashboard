@@ -56,6 +56,7 @@ card_3 = dbc.Card(
                     initial_visible_month=date(2020, 10, 1),
                     end_date=date(2021, 6, 30),
                     clearable=True,
+                    with_portal=True,
                     month_format="MMMM, YYYY",
                     number_of_months_shown=3
                 )
