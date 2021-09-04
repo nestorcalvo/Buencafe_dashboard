@@ -53,9 +53,10 @@ def layout_selection(pathname):
     # for value in range(0,20000):
     #     print(value)
     #print(dash.callback_context.triggered)
+
     if pathname == '/apps/steam':
         return steam.layout
-    elif pathname == '/apps/home':
+    elif pathname == '/apps/home' or pathname == '/':
         return home.layout
     elif pathname == '/apps/fuel':
         return fuel.layout
