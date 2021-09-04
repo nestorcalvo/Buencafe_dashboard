@@ -15,7 +15,7 @@
   <h3 align="center">Buencafé Dashboard</h3>
 
   <p align="center">
-    Dashboard for Buencafé (fill info)
+    Dashboard for Buencafé
     <br />
     <br />
     <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home">View Demo</a>
@@ -67,6 +67,11 @@ The main file is index.py, to run the application in the localhost.
 ## Contact
 
 Nestor Calvo - nestorcalvoa@gmail.com
+Luis Fernando Rico - luisf.ricoo@gmail.com
+Ana María Gómez - anamago3@gmail.com
+Maryelin Del Valle Pérez - perez.c.maryelin@gmail.com
+Juan Pablo Suárez - juan.suarezr@udea.edu.co
+Jorge Hernán López - jhlopezm2@gmail.com
 
 
 Project Link: [https://github.com/nestorcalvo/Buencafe_dashboard](https://github.com/nestorcalvo/Buencafe_dashboard)
