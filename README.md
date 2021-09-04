@@ -8,7 +8,7 @@
 <p align = "center">
 
   <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/">
-    <img src="assets/images/Home_page_1.png" alt="Logo" width="250" height="100">
+    <img src="images/buencafe_icon_1.png" alt="Logo" width="250" height="100">
   </a>
 
 
