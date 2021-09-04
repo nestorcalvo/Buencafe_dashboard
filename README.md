@@ -29,10 +29,10 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home)
-[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/)
-[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/steam)
-[![Product Name Screen Shot][product-screenshot]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/efficiency)
+[![Product Name Screen Shot][product-screenshot1]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/home)
+[![Product Name Screen Shot][product-screenshot2]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/)
+[![Product Name Screen Shot][product-screenshot3]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/steam)
+[![Product Name Screen Shot][product-screenshot4]](http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/efficiency)
 
 
 Buencafé is one of the main worldwide providers of soluble coffee of outstanding quality that belongs to the Federación Nacional de Cafeteros de Colombia (FNC). 
