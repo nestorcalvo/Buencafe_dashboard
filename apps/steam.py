@@ -193,43 +193,56 @@ def update_figure(start_date, end_date, value_radio):
     # elif value_radio == "data_hourly":
     #     data = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
     #     data.set_index(["Time"], inplace=True)
-    if value_radio == "data_daily":
-        query = "SELECT * FROM daily"
-        payload = {
-            "query": query
-        }
-        petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
-        test_var = petition.json()['body']
-        data = pd.DataFrame(test_var)
-        data['Time'] = pd.to_datetime(data['Time']).dt.date.astype("datetime64[ns]")
-        # print("Llegada ", data2['Time'].value_counts())
-        data.set_index(["Time"], inplace=True)
-    elif value_radio == "data_hourly":
-        query = "SELECT * FROM hourly"
-        payload = {
-            "query": query
-        }
-        petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
-        test_var = petition.json()['body']
-        data = pd.DataFrame(test_var)
-        data['Time'] = pd.to_datetime(data['Time'])
-        data.set_index(["Time"], inplace=True)
+    try:
+
+        if value_radio == "data_daily":
+            query = "SELECT * FROM daily"
+            payload = {
+                "query": query
+            }
+            petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
+            
+            test_var = petition.json()['body']
+            data = pd.DataFrame(test_var)
+            data['Time'] = pd.to_datetime(data['Time']).dt.date.astype("datetime64[ns]")
+            # print("Llegada ", data2['Time'].value_counts())
+            data.set_index(["Time"], inplace=True)
+        elif value_radio == "data_hourly":
+            query = "SELECT * FROM hourly"
+            payload = {
+                "query": query
+            }
+            petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
+            test_var = petition.json()['body']
+            data = pd.DataFrame(test_var)
+            data['Time'] = pd.to_datetime(data['Time'])
+            data.set_index(["Time"], inplace=True)
 
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x = data.loc[start_date: end_date].index,
-        y = data.loc[start_date: end_date]["Steam Flow Rate"],
-        mode = "lines",
-        name = "Steam"
-    ))
-    fig.update_layout(title = 'Steam Generation',
-                    xaxis_title='Date',
-                    yaxis_title='Steam (Kg/hour)',
-                    transition_duration=500,
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    plot_bgcolor='rgba(0,0,0,0)')
-    return fig
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x = data.loc[start_date: end_date].index,
+            y = data.loc[start_date: end_date]["Steam Flow Rate"],
+            mode = "lines",
+            name = "Steam"
+        ))
+        fig.update_layout(title = 'Steam Generation',
+                        xaxis_title='Date',
+                        yaxis_title='Steam (Kg/hour)',
+                        transition_duration=500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+        return fig
+    except:
+        fig = go.Figure()
+        fig.update_layout(title = 'Steam Generation',
+                xaxis_title='Date',
+                yaxis_title='Steam (Kg/hour)',
+                transition_duration=500,
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)')
+        return fig
+    
 
 @app.callback(
     Output('graph-distribution','figure'),
@@ -240,26 +253,37 @@ def update_figure(start_date, end_date, value_radio):
 def update_figure2(start_date, end_date):
     # df = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
     # df.set_index(["Time"], inplace=True)
-    query = "SELECT * FROM daily"
-    payload = {
-        "query": query
-    }
-    petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
-    test_var = petition.json()['body']
-    df = pd.DataFrame(test_var)
-    df['Time'] = pd.to_datetime(df['Time']).dt.date.astype("datetime64[ns]")
-    # print("Llegada ", data2['Time'].value_counts())
-    df.set_index(["Time"], inplace=True)
-    # df = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
-    # df.set_index(["Time"], inplace=True)
-    fig = px.histogram(df.loc[start_date: end_date], x="Steam Flow Rate", nbins=100)
-    fig.update_layout(title = 'Steam Flow Rate Distribution',
-                    xaxis_title='Steam (Kg/hour)',
-                    yaxis_title='Count',
-                    transition_duration=500,
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    plot_bgcolor='rgba(0,0,0,0)')
-    return fig
+    try:
+        query = "SELECT * FROM daily"
+        payload = {
+            "query": query
+        }
+        petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
+        test_var = petition.json()['body']
+        df = pd.DataFrame(test_var)
+        df['Time'] = pd.to_datetime(df['Time']).dt.date.astype("datetime64[ns]")
+        # print("Llegada ", data2['Time'].value_counts())
+        df.set_index(["Time"], inplace=True)
+        # df = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
+        # df.set_index(["Time"], inplace=True)
+        fig = px.histogram(df.loc[start_date: end_date], x="Steam Flow Rate", nbins=100)
+        fig.update_layout(title = 'Steam Flow Rate Distribution',
+                        xaxis_title='Steam (Kg/hour)',
+                        yaxis_title='Count',
+                        transition_duration=500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+        return fig
+    except:
+        fig = px.histogram()
+        fig.update_layout(title = 'Steam Flow Rate Distribution',
+                        xaxis_title='Steam (Kg/hour)',
+                        yaxis_title='Count',
+                        transition_duration=500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+        return fig
+
 
 @app.callback(
     [Output("graph-comparison", "figure"),
@@ -271,28 +295,40 @@ def update_figure2(start_date, end_date):
 def update_figure3(feature, efficiency):
     # df2 = pd.read_csv("data/data_interpolate_hourly.csv", parse_dates=["Time"])
     # df2.set_index(["Time"], inplace=True)
-    query = "SELECT * FROM hourly"
-    payload = {
-        "query": query
-    }
-    petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
-    test_var = petition.json()['body']
-    df2 = pd.DataFrame(test_var)
-    df2['Time'] = pd.to_datetime(df2['Time']).dt.date.astype("datetime64[ns]")
-    # print("Llegada ", data2['Time'].value_counts())
-    df2.set_index(["Time"], inplace=True)
-    fig = px.scatter(
-        x = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])]["Steam Flow Rate"],
-        y = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])][feature]
-    )
-    # fig.layout.plot_bgcolor = '#fff'
-    # fig.layout.paper_bgcolor = '#fff'
-    fig.update_layout(title = 'Steam Flow Rate Comparison',
-                    xaxis_title= 'Steam (Kg/hour)',
-                    yaxis_title= feature,
-                    transition_duration= 500,
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    plot_bgcolor='rgba(0,0,0,0)')
-    
-    range_efficiency = str(efficiency[0]) + " - " + str(efficiency[1])
-    return fig, range_efficiency
+    try:
+        query = "SELECT * FROM hourly"
+        payload = {
+            "query": query
+        }
+        petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
+        test_var = petition.json()['body']
+        df2 = pd.DataFrame(test_var)
+        df2['Time'] = pd.to_datetime(df2['Time']).dt.date.astype("datetime64[ns]")
+        # print("Llegada ", data2['Time'].value_counts())
+        df2.set_index(["Time"], inplace=True)
+        fig = px.scatter(
+            x = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])]["Steam Flow Rate"],
+            y = df2[(df2['Efficiency'] < efficiency[1]) & (df2['Efficiency'] > efficiency[0])][feature]
+        )
+        # fig.layout.plot_bgcolor = '#fff'
+        # fig.layout.paper_bgcolor = '#fff'
+        fig.update_layout(title = 'Steam Flow Rate Comparison',
+                        xaxis_title= 'Steam (Kg/hour)',
+                        yaxis_title= feature,
+                        transition_duration= 500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+        
+        range_efficiency = str(efficiency[0]) + " - " + str(efficiency[1])
+        return fig, range_efficiency
+    except:
+        fig = px.scatter()
+        fig.update_layout(title = 'Steam Flow Rate Comparison',
+                xaxis_title= 'Steam (Kg/hour)',
+                yaxis_title= feature,
+                transition_duration= 500,
+                paper_bgcolor='rgba(0,0,0,0)',
+                plot_bgcolor='rgba(0,0,0,0)')
+        
+        range_efficiency = str(efficiency[0]) + " - " + str(efficiency[1])
+        return fig, range_efficiency

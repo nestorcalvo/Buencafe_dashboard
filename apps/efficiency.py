@@ -534,35 +534,53 @@ def predict_efficiency(n_clicks,input1,input2,input3,input4,input5,input6,input7
 )
 def update_figure(steam, gas, borra, cisco) :
     #query = f"SELECT * FROM hourly WHERE \"Steam Flow Rate\" < {steam[1]} and \"Steam Flow Rate\" > {steam[0]} and \"Gas Flow Rate\" > {gas[1]} and \"Gas Flow Rate\" > {gas[0]} and \"Borra Flow Rate_kgh\" > {borra[1]} and \"Borra Flow Rate_kgh\" > {borra[0]} and \"Cisco Flow Rate_kgh\" > {cisco[1]} and \"Cisco Flow Rate_kgh\" > {cisco[0]}"
-    query = "SELECT * FROM hourly"
-    payload = {
-      "query": query
-    }
-    petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
-    test_var = petition.json()['body']
-    # print(test_var[0])
+    try:
+        query = "SELECT * FROM hourly"
+        payload = {
+        "query": query
+        }
+        petition = requests.post('https://k8nmzco6tb.execute-api.us-east-1.amazonaws.com/dev/data',payload)
+        test_var = petition.json()['body']
+        # print(test_var[0])
+        
+        df = pd.DataFrame(test_var)
+        # print(df.info())
     
-    df = pd.DataFrame(test_var)
-    # print(df.info())
-  
-    # df = pd.read_csv("data/data_interpolate_hourly.csv") #Cambiar esta linea por la base de datos del servidor
-    df = df[(df['Steam Flow Rate'] <steam[1]) & (df['Steam Flow Rate'] >steam[0]) \
-            & (df['Gas Flow Rate'] <gas[1]) & (df['Gas Flow Rate'] >gas[0]) \
-            & (df['Borra Flow Rate_kgh'] <borra[1]) & (df['Borra Flow Rate_kgh'] >borra[0]) \
-            & (df['Cisco Flow Rate_kgh'] <cisco[1]) & (df['Cisco Flow Rate_kgh'] >cisco[0])]
+        # df = pd.read_csv("data/data_interpolate_hourly.csv") #Cambiar esta linea por la base de datos del servidor
+        df = df[(df['Steam Flow Rate'] <steam[1]) & (df['Steam Flow Rate'] >steam[0]) \
+                & (df['Gas Flow Rate'] <gas[1]) & (df['Gas Flow Rate'] >gas[0]) \
+                & (df['Borra Flow Rate_kgh'] <borra[1]) & (df['Borra Flow Rate_kgh'] >borra[0]) \
+                & (df['Cisco Flow Rate_kgh'] <cisco[1]) & (df['Cisco Flow Rate_kgh'] >cisco[0])]
 
-    fig = px.histogram(df, x= "Efficiency", height=340, nbins=50)
+        fig = px.histogram(df, x= "Efficiency", height=340, nbins=50)
 
-    fig.update_layout(title = 'Efficiency distribution',
-                    xaxis_title='Efficiency',
-                    yaxis_title='Count',
-                    transition_duration=500,
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    plot_bgcolor='rgba(0,0,0,0)')
-                    
-    range_steam = str(steam[0]) + "kg/h - " + str(steam[1]) + "kg/h"
-    range_gas = str(gas[0]) + "m3/h - " + str(gas[1]) + "m3/h"
-    range_borra = str(borra[0]) + "kg/h - " + str(borra[1]) + "kg/h"
-    range_cisco = str(cisco[0]) + "kg/h - " + str(cisco[1]) + "kg/h"
+        fig.update_layout(title = 'Efficiency distribution',
+                        xaxis_title='Efficiency',
+                        yaxis_title='Count',
+                        transition_duration=500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+                        
+        range_steam = str(steam[0]) + "kg/h - " + str(steam[1]) + "kg/h"
+        range_gas = str(gas[0]) + "m3/h - " + str(gas[1]) + "m3/h"
+        range_borra = str(borra[0]) + "kg/h - " + str(borra[1]) + "kg/h"
+        range_cisco = str(cisco[0]) + "kg/h - " + str(cisco[1]) + "kg/h"
 
-    return fig, range_steam, range_gas, range_borra, range_cisco
+        return fig, range_steam, range_gas, range_borra, range_cisco
+    except:
+        
+        fig = px.histogram()
+
+        fig.update_layout(title = 'Efficiency distribution',
+                        xaxis_title='Efficiency',
+                        yaxis_title='Count',
+                        transition_duration=500,
+                        paper_bgcolor='rgba(0,0,0,0)',
+                        plot_bgcolor='rgba(0,0,0,0)')
+                        
+        range_steam = str(steam[0]) + "kg/h - " + str(steam[1]) + "kg/h"
+        range_gas = str(gas[0]) + "m3/h - " + str(gas[1]) + "m3/h"
+        range_borra = str(borra[0]) + "kg/h - " + str(borra[1]) + "kg/h"
+        range_cisco = str(cisco[0]) + "kg/h - " + str(cisco[1]) + "kg/h"
+
+        return fig, range_steam, range_gas, range_borra, range_cisco

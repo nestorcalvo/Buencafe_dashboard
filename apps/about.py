@@ -9,7 +9,7 @@ from app import app
 
 graph_1 =  dbc.Card(children=[
         dbc.CardBody([html.Div([
-                    html.Div(html.Img(src="/../assets/images/Foto.png", className='img-about'), className='wrapper-img-about'),
+                    html.Div(html.Img(src="/../assets/images/Luis.jpeg", className='img-about'), className='wrapper-img-about'),
                     
                     html.Div(children=[
                         html.H3("Project Leader"),
