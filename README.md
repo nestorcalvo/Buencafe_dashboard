@@ -7,9 +7,19 @@
 <br>
 <p align = "center">
 
-  <a href="https://github.com/nestorcalvo/Buencafe_dashboard">
-    <img src="images/buencafe_icon_1.png" alt="Logo" width="250" height="100">
+  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/">
+    <img src="assets/images/Home_page_1.png" alt="Logo" width="250" height="100">
   </a>
+  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/">
+    <img src="assets/images/Home_page_2.png" alt="Logo" width="250" height="100">
+  </a>
+  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/steam">
+    <img src="images/steam_capture.PNG"alt="Logo" width="250" height="100">
+  </a>
+  <a href="http://ec2-54-144-134-190.compute-1.amazonaws.com:8050/apps/efficiency">
+    <img src="images/efficiency_capture.PNG" alt="Logo" width="250" height="100">
+  </a>
+
 
   <h3 align="center">Buencafé Dashboard</h3>
 
@@ -67,12 +77,12 @@ Nestor Calvo - nestorcalvoa@gmail.com
 Project Link: [https://github.com/nestorcalvo/Buencafe_dashboard](https://github.com/nestorcalvo/Buencafe_dashboard)
 
 <!-- Links to badges (template, need repo in public) -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors-anon/nestorcalvo/Buencafe_dashboard
 [contributors-url]: https://github.com/nestorcalvo/Buencafe_dashboard/graphs/contributors
 
 [issues-url]: https://github.com/nestorcalvo/Buencafe_dashboard/issues
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/nestorcalvo/Buencafe_dashboard
 
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/nestorcalvo/Buencafe_dashboard
 [license-url]: https://github.com/nestorcalvo/Buencafe_dashboard/blob/master/LICENSE.txt
 [product-screenshot]: images/Mockup-1Page_1.png
