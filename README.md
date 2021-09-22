@@ -55,6 +55,7 @@ Los notebooks se encuentran con nombres que describan la funcion que cumplen y s
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+Python is requeried (https://www.python.org/)
 
 List of things you need to use the software and how to install them.
 * python libraries
